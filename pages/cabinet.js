@@ -87,7 +87,7 @@ ProductForm.propTypes = {
 
 function Upload() {
   return <div>
-    <Segment centered>
+    <Segment>
       <h4>Перетащите скан/фото документов сюда</h4>
       <Button
         content="Загрузите с компьютера"

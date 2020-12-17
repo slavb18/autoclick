@@ -192,7 +192,8 @@
     "react/jsx-uses-vars": "error",
     "react/jsx-no-undef": "error",
     "react/react-in-jsx-scope": "off",
-    "react/prop-types": "error"
+    "react/prop-types": "error",
+    "react/display-name": "off"
   },
   "globals": {
     "production": true,

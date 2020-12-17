@@ -3,15 +3,16 @@ import { Modal, Button, Segment } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 import React from 'react';
 import {
-  AutoFields,
+  AutoFields, SubmitField,
 } from 'uniforms-semantic';
 
 
 export default function Home(props) {
-  const { data, schema } = props;
+  const { data: serverData, schema } = props;
   const [open, setOpen] = React.useState(false);
+  const [data, setData] = React.useState(serverData);
 
-  const handler = (formData) => alert(JSON.stringify(formData));
+  // const handler = (formData) => alert(JSON.stringify(formData));
 
 
   return (
@@ -61,19 +62,20 @@ export default function Home(props) {
             <Modal.Description>
               <JsonSchemaForm schema={schema}
                 model={data}
-                onSubmit={handler}
+                onSubmit={(formData) => { setData(formData); setOpen(false); }}
               ><AutoFields />
+                <SubmitField className="ui positive" value="Сохранить" />
+                <Button color='black' onClick={() => setOpen(false)}>
+                  Закрыть
+                </Button>
               </JsonSchemaForm>
-              <Button color='black' onClick={() => setOpen(false)}>
-                Закрыть
-              </Button>
-              <Button
+              {/* <Button
                 content="Сохранить"
                 labelPosition='right'
                 icon='checkmark'
                 onClick={() => setOpen(false)}
                 positive
-              />
+              /> */}
             </Modal.Description>
           </Modal.Content>
         </Modal>
@@ -100,11 +102,11 @@ export async function getServerSideProps() {
     required: ['productAmount', 'downPayment', 'period', 'payment'],
   }
   const data = {
-    period: 60,
-    rate: 11,
-    payment: 25231,
-    productAmount: 1200000,
-    downPayment: 200000,
+    period: '60',
+    rate: '11',
+    payment: '25231',
+    productAmount: '1200000',
+    downPayment: '200000',
   };
 
   const props = { schema, data }

@@ -80,6 +80,16 @@ export default function Home(props) {
           </Modal.Content>
         </Modal>
       </Segment>
+      <Segment>
+        <table>
+          <tr>
+            <td>1. ПТС</td>
+          </tr>
+          <tr>
+            <td>1. Договор купли-продажи</td>
+          </tr>
+        </table>
+      </Segment>
     </div>
   )
 }

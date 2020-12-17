@@ -6,7 +6,6 @@ import {
   AutoFields, SubmitField,
 } from 'uniforms-semantic';
 
-
 function ProductForm({ data, setData }) {
   const [open, setOpen] = React.useState(false);
   const schema = {

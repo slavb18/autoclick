@@ -6,6 +6,7 @@ import {
   AutoFields, SubmitField,
 } from 'uniforms-semantic';
 
+import a1 from './dog/a1.png'
 import page1 from './dog/page-1.jpg'
 import page2 from './dog/page-2.jpg'
 import page3 from './dog/page-3.jpg'
@@ -131,6 +132,16 @@ Upload.propTypes = {
   pages: PropTypes.object,
 };
 
+// function ClientDossier() {
+//   const pagesPasp = [
+//     { name: 'Паспорт', src: a1 },
+//   ]
+//   const panes = [
+//     { menuItem: 'Паспорт', render: () => <Tab.Pane><Upload pages={pagesPasp} /></Tab.Pane> },
+//   ]
+//   return <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={panes} />;
+// }
+
 function AutoDossier() {
   const pagesPTS = [
     { name: 'ПТС', src: page1 },
@@ -140,7 +151,12 @@ function AutoDossier() {
   const pagesDKP = [
     { name: 'ДКП', src: page1 },
   ]
+  // const pagesPasp = [
+  //   { name: 'Паспорт', src: a1 },
+  // ]
+
   const panes = [
+    // { menuItem: 'Паспорт', render: () => <Tab.Pane><Upload pages={pagesPasp} /></Tab.Pane> },
     { menuItem: 'ПТС', render: () => <Tab.Pane><Upload pages={pagesPTS} /></Tab.Pane> },
     { menuItem: 'Договор купли-продажи', render: () => <Tab.Pane><Upload pages={pagesDKP} /></Tab.Pane> },
   ]
@@ -166,6 +182,7 @@ export default function Cabinet(props) {
       <Grid.Row>
         <Grid.Column width="12">
           <Error />
+          {/* <ClientDossier /> */}
           <AutoDossier />
         </Grid.Column>
         <Grid.Column width="4">

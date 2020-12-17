@@ -1,7 +1,8 @@
-.centered {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+.error {
+  background-color: red;
+  color: white;
+}
+
+.managerComment {
+  background-color: lemonchiffon;
 }

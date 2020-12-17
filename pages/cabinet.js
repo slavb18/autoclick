@@ -1,10 +1,14 @@
 import JsonSchemaForm from '@ilb/jsonschemaform';
-import { Modal, Button, Segment, Grid, Tab } from 'semantic-ui-react'
+import { Modal, Button, Segment, Grid, Tab, Icon } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 import React from 'react';
 import {
   AutoFields, SubmitField,
 } from 'uniforms-semantic';
+
+import page1 from './dog/page-1.jpg'
+import page2 from './dog/page-2.jpg'
+import page3 from './dog/page-3.jpg'
 
 function ProductForm({ data, setData }) {
   const [open, setOpen] = React.useState(false);
@@ -57,7 +61,12 @@ function ProductForm({ data, setData }) {
 
     <Modal onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
-      open={open} trigger={<Button>Подобрать продукт</Button>}>
+      open={open} trigger={<Button
+        content="Подобрать продукт"
+        labelPosition='right'
+        icon='calculator'
+        positive
+      />}>
       <Modal.Header>
         <em>Подобрать продукт</em>
       </Modal.Header>
@@ -84,29 +93,66 @@ ProductForm.propTypes = {
   setData: PropTypes.func,
 };
 
-function Upload() {
+function Upload({ pages }) {
   return <div>
     <Segment>
       <h4>Перетащите скан/фото документов сюда</h4>
       <Button
         content="Загрузите с компьютера"
         labelPosition='right'
-        icon='checkmark'
+        icon='upload'
         positive
       />
-      <Button color='black'>
-        Загрузите с телефона
-      </Button>
+      <Button
+        content="Загрузите с телефона"
+        labelPosition='right'
+        color='black'
+        icon='mobile alternate'
+      />
     </Segment>
+    <Grid columns={4} divided>
+      <Grid.Row>
+        {
+          pages.map((page, index) => <Grid.Column key={index}>
+            <Icon name="window close outline" />
+            {page.error && <span className="error">{page.error}</span>}
+            <br />
+            <img src={page.src} width="150" height="150" />
+          </Grid.Column>)
+        }
+
+      </Grid.Row>
+    </Grid>
   </div>
 }
 
+
+Upload.propTypes = {
+  pages: PropTypes.object,
+};
+
 function AutoDossier() {
+  const pagesPTS = [
+    { name: 'ПТС', src: page1 },
+    { name: 'ПТС', src: page2, error: 'Проверьте файл' },
+    { name: 'ПТС', src: page3 },
+  ]
+  const pagesDKP = [
+    { name: 'ДКП', src: page1 },
+  ]
   const panes = [
-    { menuItem: 'ПТС', render: () => <Tab.Pane><Upload /></Tab.Pane> },
-    { menuItem: 'Договор купли-продажи', render: () => <Tab.Pane><Upload /></Tab.Pane> },
+    { menuItem: 'ПТС', render: () => <Tab.Pane><Upload pages={pagesPTS} /></Tab.Pane> },
+    { menuItem: 'Договор купли-продажи', render: () => <Tab.Pane><Upload pages={pagesDKP} /></Tab.Pane> },
   ]
   return <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={panes} />;
+}
+function Error() {
+  return <Segment>
+    <div className="managerComment">
+      <h4>Комментарий менеджера</h4>
+    Проверьте документ ПТС: не совпадает VIN
+    </div>
+  </Segment>
 }
 
 export default function Cabinet(props) {
@@ -119,6 +165,7 @@ export default function Cabinet(props) {
     <Grid>
       <Grid.Row>
         <Grid.Column width="12">
+          <Error />
           <AutoDossier />
         </Grid.Column>
         <Grid.Column width="4">

@@ -6,7 +6,7 @@ import {
   AutoFields, SubmitField,
 } from 'uniforms-semantic';
 
-import a1 from './dog/a1.png'
+// import a1 from './dog/a1.png'
 import page1 from './dog/page-1.jpg'
 import page2 from './dog/page-2.jpg'
 import page3 from './dog/page-3.jpg'
@@ -20,7 +20,6 @@ function ProductForm({ data, setData }) {
       productAmount: { type: 'string', title: 'Стоимость авто' },
       downPayment: { type: 'string', title: 'Первоначальный взнос' },
       period: { type: 'string', title: 'Срок' },
-      payment: { type: 'string', title: 'Платеж' },
     },
     required: ['productAmount', 'downPayment', 'period', 'payment'],
   };

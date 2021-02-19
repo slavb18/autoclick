@@ -7,10 +7,8 @@ pipeline {
     stages {
         stage ('Build') {
             steps {
-                nodejs('node10') {
-                    sh 'npm run _publish'
-                    sh 'sudo /opt/bin/npmdeploy10 @ilb/autoclick autoclick latest /home/autoclick'
-               }
+                sh 'npm run _publish'
+                sh 'sudo /opt/bin/npmdeploy @ilb/autoclick autoclick latest /home/autoclick'
             }
         }
     }

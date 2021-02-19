@@ -1,5 +1,6 @@
-import JsonSchemaForm from '@ilb/jsonschemaform';
 import { Modal, Button, Segment, Grid, Tab, Icon } from 'semantic-ui-react'
+import { AutoForm } from 'uniforms-semantic';
+import { createSchemaBridge } from '../libs/uniforms';
 import PropTypes from 'prop-types'
 import React from 'react';
 import {
@@ -13,6 +14,7 @@ import page3 from './dog/page-3.jpg'
 
 function ProductForm({ data, setData }) {
   const [open, setOpen] = React.useState(false);
+  const onSubmit = (formData) => { setOpen(false); setData(formData); }
   const schema = {
     title: 'Параметры продукта',
     type: 'object',
@@ -72,16 +74,18 @@ function ProductForm({ data, setData }) {
       </Modal.Header>
       <Modal.Content>
         <Modal.Description>
-          <JsonSchemaForm schema={schema}
-            model={data}
-            onSubmit={(formData) => { setOpen(false); setData(formData); }}
-          >
+
+        <AutoForm
+        schema={createSchemaBridge(schema)}
+        model={data}
+        onSubmit={onSubmit}
+        showInlineError={true}>
             <AutoFields />
             <SubmitField className="ui positive" value="Сохранить" />
             <Button color='black' onClick={() => setOpen(false)}>
               Закрыть
             </Button>
-          </JsonSchemaForm>
+            </AutoForm>
         </Modal.Description>
       </Modal.Content>
     </Modal>
@@ -128,7 +132,7 @@ function Upload({ pages }) {
 
 
 Upload.propTypes = {
-  pages: PropTypes.object,
+  pages: PropTypes.array,
 };
 
 // function ClientDossier() {

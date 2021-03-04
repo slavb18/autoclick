@@ -1,10 +1,9 @@
-import { Modal, Button, Segment, Grid, Tab, Icon } from 'semantic-ui-react'
+import { Modal, Button, Segment, Grid, Tab, Icon, Image} from 'semantic-ui-react'
 import { AutoForm } from 'uniforms-semantic';
 import { createSchemaBridge } from '../libs/uniforms';
 import PropTypes from 'prop-types'
 import React from 'react';
 import {AutoFields, SubmitField,} from 'uniforms-semantic';
-
 
 import page1 from './dog/page-1.jpg'
 import page2 from './dog/page-2.jpg'
@@ -107,26 +106,10 @@ function Chat({ data, setData }) {
     title: 'Сообщения',
     type: 'object',
     properties: {
-      message: { type: 'string', title: 'Сообщения' },
+      message: { type: 'string', title: 'Сообщения'},
       },
     required: ['message'],
   };
-
-  const exit = [
-    { name: ' '},
-  ]
-  const interlocutor1 = [
-    { name: 'Собеседник1', src: a1 },
-  ]
-  const interlocutor2 = [
-    { name: 'Собеседник2', src: page1 },
-  ]
-
-  const panes = [
-    { menuItem: ' ', render: () => <Tab.Pane align="center">Выберите диалог</Tab.Pane> },
-    { menuItem: 'Собеседник1', render: () => <Tab.Pane><UploadMessages pages={interlocutor1} /></Tab.Pane> },
-    { menuItem: 'Собеседник2', render: () => <Tab.Pane><UploadMessages pages={interlocutor2} /></Tab.Pane> },
-  ]
 
   return <div>
     <Segment>
@@ -140,23 +123,54 @@ function Chat({ data, setData }) {
         </Modal.Header>
         <Modal.Content>
           <Modal.Description>
-          <form>
-            <input type="text" id="filter" placeholder="Search for..." />
-          </form>
-          <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={panes} />
-          <Segment>
-          <AutoForm
-              schema={createSchemaBridge(schema)}
-              model={data}
-              onSubmit={onSubmit}
-              showInlineError={true}>
-              <AutoFields />
-              <SubmitField className="ui positive" value="Отправить" />
-              <Button color='black' onClick={() => setOpen(false)}>
-                Закрыть
-              </Button>
-            </AutoForm>
-            </Segment>
+            <Grid divided='vertically'>
+              <Grid.Column width={5}>
+                  <Segment>
+                    Собеседник1
+                  </Segment>
+              </Grid.Column>
+              <Grid.Column width={10}>
+                  <Segment>
+                  <Segment color='green'>
+                      <p align='left'>15:02</p>
+                      <p>Добрый день! Вот здесь ошибка:</p>
+                      <img src={page2} width="150" height="150" /> 
+                  </Segment>
+                    <Segment >
+                      <p align='right'>16:53</p>
+                      <p>Здравствуйте!</p>
+                    </Segment>
+                    <Segment>
+                      <p align='right'>16:54</p>
+                      <p>Можете подсказать, какая ошибка?</p>
+                      <p>И вот паспорт</p>
+                      <img src={a1} width="150" height="150" /> 
+                    </Segment>
+                    <Segment color='green'>
+                      <p align='left'>17:02</p>
+                      <p>Добрый день!</p>
+                    </Segment>
+                  </Segment>
+              </Grid.Column>
+            </Grid>
+            <Grid divided='vertically'>
+              <Grid.Column width={5}>
+              </Grid.Column>
+              <Grid.Column width={10}>
+                <Segment>
+                  <AutoForm
+                    schema={createSchemaBridge(schema)}
+                    model={data}
+                    onSubmit={onSubmit}
+                    showInlineError={true}>
+                    <AutoFields />
+                    <SubmitField className="ui positive" value="Отправить" />
+                   </AutoForm>
+                </Segment>
+              </Grid.Column>
+            </Grid>
+            <Button color='black' onClick={() => setOpen(false)}>
+              Закрыть</Button>
           </Modal.Description>
         </Modal.Content>
       </Modal>
@@ -167,29 +181,6 @@ function Chat({ data, setData }) {
 Chat.propTypes = {
   data: PropTypes.object,
   setData: PropTypes.func,
-};
-
-function UploadMessages({ pages }) {
-  return <div>
-    
-    <Grid columns={5} divided>
-      <Grid.Row>
-        {
-          pages.map((page, index) => <Grid.Column key={index}>
-            
-            {page.error && <span className="error">{page.error}</span>}
-            <br />
-            <img src={page.src} width="150" height="150" />
-          </Grid.Column>)
-        }
-
-      </Grid.Row>
-    </Grid>
-  </div>
-}
-
-UploadMessages.propTypes = {
-  pages: PropTypes.array,
 };
 
 function Upload({ pages }) {

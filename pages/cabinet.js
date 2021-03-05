@@ -9,6 +9,8 @@ import page1 from './dog/page-1.jpg'
 import page2 from './dog/page-2.jpg'
 import page3 from './dog/page-3.jpg'
 import a1 from './dog/a1.png'
+import doc1 from './dog/document.jpg'
+import doc2 from './dog/document2.png'
 
 function ProductForm({ data, setData }) {
   const [open, setOpen] = React.useState(false);
@@ -121,7 +123,7 @@ function Chat({ data, setData }) {
         <Modal.Header>
           <em>Сообщения</em>
         </Modal.Header>
-        <Modal.Content>
+        <Modal.Content scrolling>
           <Modal.Description>
             <Grid divided='vertically'>
               <Grid.Column width={5}>
@@ -129,27 +131,27 @@ function Chat({ data, setData }) {
                     Собеседник1
                   </Segment>
               </Grid.Column>
-              <Grid.Column width={10}>
+              <Grid.Column width={10} height={10}>
                   <Segment>
-                  <Segment color='green'>
-                      <p align='left'>15:02</p>
-                      <p>Добрый день! Вот здесь ошибка:</p>
-                      <img src={page2} width="150" height="150" /> 
-                  </Segment>
-                    <Segment >
-                      <p align='right'>16:53</p>
-                      <p>Здравствуйте!</p>
-                    </Segment>
-                    <Segment>
-                      <p align='right'>16:54</p>
-                      <p>Можете подсказать, какая ошибка?</p>
-                      <p>И вот паспорт</p>
-                      <img src={a1} width="150" height="150" /> 
-                    </Segment>
-                    <Segment color='green'>
-                      <p align='left'>17:02</p>
-                      <p>Добрый день!</p>
-                    </Segment>
+                      <Segment color='green'>
+                          <p align='left'>15:02</p>
+                          <p>Добрый день! Вот здесь ошибка:</p>
+                          <img src={page2} width="150" height="150" /> 
+                      </Segment>
+                      <Segment>
+                        <p align='right'>16:53</p>
+                        <p>Здравствуйте!</p>
+                      </Segment>
+                      <Segment>
+                        <p align='right'>16:54</p>
+                        <p>Можете подсказать, какая ошибка?</p>
+                        <p>И вот паспорт</p>
+                        <img src={a1} width="150" height="150" /> 
+                      </Segment>
+                      <Segment color='green'>
+                        <p align='left'>17:02</p>
+                        <p>Добрый день!</p>
+                      </Segment>
                   </Segment>
               </Grid.Column>
             </Grid>
@@ -260,6 +262,133 @@ function Error() {
   </Segment>
 }
 
+function ListForm({ pages }) {
+  return <div>
+  <Segment></Segment>
+   <Grid divided='vertically'>
+      <Grid.Column width={4}>
+        <Segment>
+          Загруженные документы
+        </Segment>
+      </Grid.Column>
+      <Grid.Column width={12}>
+        <Segment>
+          <Segment>
+            <Grid columns={3} divided>
+              <Grid.Column width={2}>
+                <img src={doc1} width="50" height="50" /> 
+              </Grid.Column>
+              <Grid.Column width={11}>
+                Договор№124432.png
+                <p>Добавлен 04.02.2021 в 11:46</p>
+              </Grid.Column>
+              <Grid.Column width={2}>
+                <Button color='green'>Скачать</Button>
+                <Button color='red'>Удалить</Button>
+              </Grid.Column>
+            </Grid>
+          </Segment>
+          <Segment>
+            <Grid columns={3} divided>
+              <Grid.Column width={2}>
+                <img src={doc2} width="55" height="50" /> 
+              </Grid.Column>
+              <Grid.Column width={11}>
+                Договор№54433.png
+                <p>Добавлен 02.03.2021 в 12:15</p>
+              </Grid.Column>
+              <Grid.Column width={2}>
+                <Button color='green'>Скачать</Button>
+                <Button color='red'>Удалить</Button>
+              </Grid.Column>
+            </Grid>
+          </Segment>
+          <Segment>
+            <Grid columns={3} divided>
+              <Grid.Column width={2}>
+                <img src={doc1} width="50" height="50" /> 
+              </Grid.Column>
+              <Grid.Column width={11}>
+                Договор.jpg
+                <p>Добавлен 01.03.2021 в 15:23</p>
+              </Grid.Column>
+              <Grid.Column width={2}>
+                <Button color='green'>Скачать</Button>
+                <Button color='red'>Удалить</Button>
+              </Grid.Column>
+            </Grid>
+          </Segment>
+          <Segment>
+            <Grid columns={3} divided>
+              <Grid.Column width={2}>
+                <img src={doc2} width="55" height="50" /> 
+              </Grid.Column>
+              <Grid.Column width={11}>
+                Согласие супруга.jpg
+                <p>Добавлен 28.02.2021 в 11:46</p>
+              </Grid.Column>
+              <Grid.Column width={2}>
+                <Button color='green'>Скачать</Button>
+                <Button color='red'>Удалить</Button>
+              </Grid.Column>
+            </Grid>
+          </Segment>
+          <Segment>
+            <Grid columns={3} divided>
+              <Grid.Column width={2}>
+                <img src={doc1} width="50" height="50" /> 
+              </Grid.Column>
+              <Grid.Column width={11}>
+                ИНН.jpg
+                <p>Добавлен 28.02.2021 в 11:42</p>
+              </Grid.Column>
+              <Grid.Column width={2}>
+                <Button color='green'>Скачать</Button>
+                <Button color='red'>Удалить</Button>
+              </Grid.Column>
+            </Grid>
+          </Segment>
+          <Segment>
+            <Grid columns={3} divided>
+              <Grid.Column width={2}>
+                <img src={doc1} width="50" height="50" /> 
+              </Grid.Column>
+              <Grid.Column width={11}>
+                Договор№98766.png
+                <p>Добавлен 26.02.2021 в 09:57</p>
+              </Grid.Column>
+              <Grid.Column width={2}>
+                <Button color='green'>Скачать</Button>
+                <Button color='red'>Удалить</Button>
+              </Grid.Column>
+            </Grid>
+          </Segment>
+          <Segment>
+            <Grid columns={3} divided>
+              <Grid.Column width={2}>
+                <img src={doc2} width="55" height="50" /> 
+              </Grid.Column>
+              <Grid.Column width={11}>
+                Согласие супруга.jpg
+                <p>Добавлен 24.02.2021 в 19:32</p>
+              </Grid.Column>
+              <Grid.Column width={2}>
+                <Button color='green'>Скачать</Button>
+                <Button color='red'>Удалить</Button>
+              </Grid.Column>
+            </Grid>
+          </Segment>
+        </Segment>
+      </Grid.Column>
+   </Grid>
+  </div>
+}
+
+
+ListForm.propTypes = {
+  pages: PropTypes.array,
+};
+
 export default function Cabinet(props) {
   const { data: serverData } = props;
   const [data, setData] = React.useState(serverData);
@@ -271,8 +400,8 @@ export default function Cabinet(props) {
       <Grid.Row>
         <Grid.Column width="12">
           <Error />
-          {/* <ClientDossier /> */}
           <AutoDossier />
+          <ListForm/>
         </Grid.Column>
         <Grid.Column width="4">
           <ProductForm data={data} setData={setData} />

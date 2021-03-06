@@ -131,7 +131,7 @@ function Chat({ data, setData }) {
                     Собеседник1
                   </Segment>
               </Grid.Column>
-              <Grid.Column width={10} height={10}>
+              <Grid.Column width={10}>
                   <Segment>
                       <Segment color='green'>
                           <p align='left'>15:02</p>
@@ -155,7 +155,11 @@ function Chat({ data, setData }) {
                   </Segment>
               </Grid.Column>
             </Grid>
-            <Grid divided='vertically'>
+            
+          </Modal.Description>
+        </Modal.Content>
+        <Modal.Content>
+          <Grid divided='vertically'>
               <Grid.Column width={5}>
               </Grid.Column>
               <Grid.Column width={10}>
@@ -167,13 +171,12 @@ function Chat({ data, setData }) {
                     showInlineError={true}>
                     <AutoFields />
                     <SubmitField className="ui positive" value="Отправить" />
+                    <Button color='black' onClick={() => setOpen(false)}>
+                        Закрыть</Button>
                    </AutoForm>
                 </Segment>
               </Grid.Column>
             </Grid>
-            <Button color='black' onClick={() => setOpen(false)}>
-              Закрыть</Button>
-          </Modal.Description>
         </Modal.Content>
       </Modal>
     </Segment>

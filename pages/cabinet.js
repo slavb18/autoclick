@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import React from 'react';
 import {AutoFields, SubmitField,} from 'uniforms-semantic';
 
+
 import page1 from './dog/page-1.jpg'
 import page2 from './dog/page-2.jpg'
 import page3 from './dog/page-3.jpg'
@@ -121,15 +122,20 @@ function Chat({ data, setData }) {
           content="Сообщения"  color='green' positive
         />}>
         <Modal.Header>
-          <em>Сообщения</em>
+          <Grid divided='vertically'>
+            <Grid.Column width={15}>
+              <em>Сообщения</em>
+            </Grid.Column>
+            <Grid.Column width={1}>
+              <Icon link name='close' onClick={() => setOpen(false)}/>
+            </Grid.Column>
+          </Grid>
         </Modal.Header>
         <Modal.Content scrolling>
           <Modal.Description>
             <Grid divided='vertically'>
               <Grid.Column width={5}>
-                  <Segment>
-                    Собеседник1
-                  </Segment>
+                  <i>4 участника, 2 участника онлайн...</i>
               </Grid.Column>
               <Grid.Column width={10}>
                   <Segment>
@@ -138,11 +144,11 @@ function Chat({ data, setData }) {
                           <p>Добрый день! Вот здесь ошибка:</p>
                           <img src={page2} width="150" height="150" /> 
                       </Segment>
-                      <Segment>
+                      <Segment color='orange'>
                         <p align='right'>16:53</p>
                         <p>Здравствуйте!</p>
                       </Segment>
-                      <Segment>
+                      <Segment color='orange'>
                         <p align='right'>16:54</p>
                         <p>Можете подсказать, какая ошибка?</p>
                         <p>И вот паспорт</p>
@@ -169,11 +175,18 @@ function Chat({ data, setData }) {
                     model={data}
                     onSubmit={onSubmit}
                     showInlineError={true}>
-                    <AutoFields />
-                    <SubmitField className="ui positive" value="Отправить" />
-                    <Button color='black' onClick={() => setOpen(false)}>
-                        Закрыть</Button>
-                   </AutoForm>
+                    <Grid divided='vertically'>
+                      <Grid.Column width={2}>
+                        <Icon link name='paperclip' size='big'/>
+                      </Grid.Column>
+                      <Grid.Column width={12}>
+                        <input type="text" required placeholder='Введите ваше сообщение...' name="Message" />
+                      </Grid.Column>
+                      <Grid.Column width={2}>
+                      <p><Button icon='checkmark' color='green' /></p>
+                      </Grid.Column>
+                    </Grid>
+                  </AutoForm>
                 </Segment>
               </Grid.Column>
             </Grid>
@@ -286,8 +299,10 @@ function ListForm({ pages }) {
                 <p>Добавлен 04.02.2021 в 11:46</p>
               </Grid.Column>
               <Grid.Column width={2}>
-                <Button color='green'>Скачать</Button>
-                <Button color='red'>Удалить</Button>
+                <Button color='green' content="Скачать" labelPosition='right'
+                icon='download'/>
+                <Button color='black' content="Удалить" labelPosition='right'
+                icon='trash alternate'/>
               </Grid.Column>
             </Grid>
           </Segment>
@@ -301,8 +316,10 @@ function ListForm({ pages }) {
                 <p>Добавлен 02.03.2021 в 12:15</p>
               </Grid.Column>
               <Grid.Column width={2}>
-                <Button color='green'>Скачать</Button>
-                <Button color='red'>Удалить</Button>
+                <Button color='green' content="Скачать" labelPosition='right'
+                icon='download'/>
+                <Button color='black' content="Удалить" labelPosition='right'
+                icon='trash alternate'/>
               </Grid.Column>
             </Grid>
           </Segment>
@@ -316,8 +333,10 @@ function ListForm({ pages }) {
                 <p>Добавлен 01.03.2021 в 15:23</p>
               </Grid.Column>
               <Grid.Column width={2}>
-                <Button color='green'>Скачать</Button>
-                <Button color='red'>Удалить</Button>
+                <Button color='green' content="Скачать" labelPosition='right'
+                icon='download'/>
+                <Button color='black' content="Удалить" labelPosition='right'
+                icon='trash alternate'/>
               </Grid.Column>
             </Grid>
           </Segment>
@@ -331,8 +350,10 @@ function ListForm({ pages }) {
                 <p>Добавлен 28.02.2021 в 11:46</p>
               </Grid.Column>
               <Grid.Column width={2}>
-                <Button color='green'>Скачать</Button>
-                <Button color='red'>Удалить</Button>
+                <Button color='green' content="Скачать" labelPosition='right'
+                icon='download'/>
+                <Button color='black' content="Удалить" labelPosition='right'
+                icon='trash alternate'/>
               </Grid.Column>
             </Grid>
           </Segment>
@@ -346,8 +367,10 @@ function ListForm({ pages }) {
                 <p>Добавлен 28.02.2021 в 11:42</p>
               </Grid.Column>
               <Grid.Column width={2}>
-                <Button color='green'>Скачать</Button>
-                <Button color='red'>Удалить</Button>
+                <Button color='green' content="Скачать" labelPosition='right'
+                icon='download'/>
+                <Button color='black' content="Удалить" labelPosition='right'
+                icon='trash alternate'/>
               </Grid.Column>
             </Grid>
           </Segment>
@@ -361,8 +384,10 @@ function ListForm({ pages }) {
                 <p>Добавлен 26.02.2021 в 09:57</p>
               </Grid.Column>
               <Grid.Column width={2}>
-                <Button color='green'>Скачать</Button>
-                <Button color='red'>Удалить</Button>
+                <Button color='green' content="Скачать" labelPosition='right'
+                icon='download'/>
+                <Button color='black' content="Удалить" labelPosition='right'
+                icon='trash alternate'/>
               </Grid.Column>
             </Grid>
           </Segment>
@@ -376,8 +401,10 @@ function ListForm({ pages }) {
                 <p>Добавлен 24.02.2021 в 19:32</p>
               </Grid.Column>
               <Grid.Column width={2}>
-                <Button color='green'>Скачать</Button>
-                <Button color='red'>Удалить</Button>
+                <Button color='green' content="Скачать" labelPosition='right'
+                icon='download'/>
+                <Button color='black' content="Удалить" labelPosition='right'
+                icon='trash alternate'/>
               </Grid.Column>
             </Grid>
           </Segment>

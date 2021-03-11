@@ -278,7 +278,7 @@ function Error() {
   </Segment>
 }
 
-function ListForm({ pages }) {
+function ListForm() {
   return <div>
   <Segment></Segment>
    <Grid divided='vertically'>
@@ -414,10 +414,6 @@ function ListForm({ pages }) {
   </div>
 }
 
-
-ListForm.propTypes = {
-  pages: PropTypes.array,
-};
 
 export default function Cabinet(props) {
   const { data: serverData } = props;

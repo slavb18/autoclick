@@ -25,5 +25,15 @@ module.exports = withPlugins([withTM], {
       }
     });
     return config;
+  },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/autoclick/cabinet',
+        permanent: false,
+        basePath: false
+      }
+    ];
   }
 });

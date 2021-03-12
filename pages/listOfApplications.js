@@ -4,6 +4,7 @@ import { createSchemaBridge } from '../libs/uniforms';
 import PropTypes from 'prop-types'
 import React from 'react';
 import {AutoFields, SubmitField,} from 'uniforms-semantic';
+import Link from 'next/link'
 
 import doc1 from './dog/document.jpg'
 import doc2 from './dog/document2.png'
@@ -22,7 +23,11 @@ function ListOfApplications({ data, setData }) {
   <Segment></Segment>
 	  
 		<Segment>
-			Введите параметры поиска:
+			<Link href="/listOfApplications">
+        		<Button color='green'  floated='right' content="Подать заявку" labelPosition='right'
+        		icon='arrow alternate circle right'/>
+      		</Link>
+			<p>Введите параметры поиска:</p>
 			<p></p>
 			<Grid divided='vertically'>
 				<Grid.Column width={3}>
@@ -71,13 +76,14 @@ function ListOfApplications({ data, setData }) {
                 Иванов Иван Иванович
                 <p>Марка: FAW; Модель: Besturn X40; Год выпуска: 2020;</p>
                 <p>Название салона: VOLVO CAR ИЖЕВСК</p>
-                <p>Сумма кредита: 1 072 000 руб., Первый взнос: 550 000 руб.</p>
+                <p>Сумма кредита: 1 072 000 руб., Первоначальный взнос: 550 000 руб.</p>
               </Grid.Column>
               <Grid.Column width={2}>
-                <Button color='green' content="Скачать" labelPosition='right'
-                icon='download'/>
-                <Button color='black' content="Удалить" labelPosition='right'
-                icon='trash alternate'/>
+              	<p></p>
+              	<Link href="/cabinet">
+          			<Button color='green' content="Открыть" labelPosition='right'
+                icon='arrow alternate circle right'/>
+        		</Link>
               </Grid.Column>
             </Grid>
           </Segment>
@@ -87,13 +93,14 @@ function ListOfApplications({ data, setData }) {
                 Иванов Алексей Игоревич
                 <p>Марка: Changan; Модель: CS75; Год выпуска: 2020;</p>
                 <p>Название салона: Комос-МБ</p>
-                <p>Сумма кредита: 1 719 900 руб., Первый взнос: 275 000 руб.</p>
+                <p>Сумма кредита: 1 719 900 руб., Первоначальный взнос: 275 000 руб.</p>
               </Grid.Column>
               <Grid.Column width={2}>
-                <Button color='green' content="Скачать" labelPosition='right'
-                icon='download'/>
-                <Button color='black' content="Удалить" labelPosition='right'
-                icon='trash alternate'/>
+              	<p></p>
+              	<Link href="/cabinet">
+          			<Button color='green' content="Открыть" labelPosition='right'
+                icon='arrow alternate circle right'/>
+        		</Link>
               </Grid.Column>
             </Grid>
           </Segment>
@@ -103,13 +110,14 @@ function ListOfApplications({ data, setData }) {
                 Смирнов Иван Васильевич
                 <p>Марка: Dongfeng; Модель: AX7; Год выпуска: 2020;</p>
                 <p>Название салона: FAW Центр Ижевск</p>
-                <p>Сумма кредита: 1 329 000 руб., Первый взнос: 335 000 руб.</p>
+                <p>Сумма кредита: 1 329 000 руб., Первоначальный взнос: 335 000 руб.</p>
               </Grid.Column>
               <Grid.Column width={2}>
-                <Button color='green' content="Скачать" labelPosition='right'
-                icon='download'/>
-                <Button color='black' content="Удалить" labelPosition='right'
-                icon='trash alternate'/>
+              	<p></p>
+              	<Link href="/cabinet">
+          			<Button color='green' content="Открыть" labelPosition='right'
+                icon='arrow alternate circle right'/>
+        		</Link>
               </Grid.Column>
             </Grid>
           </Segment>
@@ -119,13 +127,14 @@ function ListOfApplications({ data, setData }) {
                 Краснова Мария Владимировна
                 <p>Марка: JAC; Модель: T6; Год выпуска: 2020;</p>
                 <p>Название салона: Субару Центр Ижевск</p>
-                <p>Сумма кредита: 1 449 000 руб., Первый взнос: 140 000 руб.</p>
+                <p>Сумма кредита: 1 449 000 руб., Первоначальный взнос: 140 000 руб.</p>
               </Grid.Column>
               <Grid.Column width={2}>
-                <Button color='green' content="Скачать" labelPosition='right'
-                icon='download'/>
-                <Button color='black' content="Удалить" labelPosition='right'
-                icon='trash alternate'/>
+              	<p></p>
+              	<Link href="/cabinet">
+          			<Button color='green' content="Открыть" labelPosition='right'
+                icon='arrow alternate circle right'/>
+        		</Link>
               </Grid.Column>
             </Grid>
           </Segment>
@@ -135,13 +144,14 @@ function ListOfApplications({ data, setData }) {
                 Архипов Николай Андреевич
                 <p>Марка: Changan; Модель: Besturn CS75; Год выпуска: 2020;</p>
                 <p>Название салона: Субару Центр Ижевск</p>
-                <p>Сумма кредита: 1 619 900 руб., Первый взнос: 250 000 руб.</p>
+                <p>Сумма кредита: 1 619 900 руб., Первоначальный взнос: 250 000 руб.</p>
               </Grid.Column>
               <Grid.Column width={2}>
-                <Button color='green' content="Скачать" labelPosition='right'
-                icon='download'/>
-                <Button color='black' content="Удалить" labelPosition='right'
-                icon='trash alternate'/>
+              	<p></p>
+              	<Link href="/cabinet">
+          			<Button color='green' content="Открыть" labelPosition='right'
+                icon='arrow alternate circle right'/>
+        		</Link>
               </Grid.Column>
             </Grid>
           </Segment>
@@ -151,13 +161,14 @@ function ListOfApplications({ data, setData }) {
                 Емельянова Антонина Михайловна
                 <p>Марка: GAC; Модель: GS8; Год выпуска: 2020;</p>
                 <p>Название салона: АСПЭК-Открытие</p>
-                <p>Сумма кредита: 2 518 000 руб., Первый взнос: 950 000 руб.</p>
+                <p>Сумма кредита: 2 518 000 руб., Первоначальный взнос: 950 000 руб.</p>
               </Grid.Column>
               <Grid.Column width={2}>
-                <Button color='green' content="Скачать" labelPosition='right'
-                icon='download'/>
-                <Button color='black' content="Удалить" labelPosition='right'
-                icon='trash alternate'/>
+              	<p></p>
+              	<Link href="/cabinet">
+          			<Button color='green' content="Открыть" labelPosition='right'
+                icon='arrow alternate circle right'/>
+        		</Link>
               </Grid.Column>
             </Grid>
           </Segment>
@@ -167,13 +178,14 @@ function ListOfApplications({ data, setData }) {
                 Сабиров Даниила Валентинович
                 <p>Марка: JAC; Модель: S3; Год выпуска: 2020;</p>
                 <p>Название салона: АСПЭК-Открытие</p>
-                <p>Сумма кредита: АСПЭК-Открытие руб., Первый взнос: 400 000 руб.</p>
+                <p>Сумма кредита: АСПЭК-Открытие руб., Первоначальный взнос: 400 000 руб.</p>
               </Grid.Column>
               <Grid.Column width={2}>
-                <Button color='green' content="Скачать" labelPosition='right'
-                icon='download'/>
-                <Button color='black' content="Удалить" labelPosition='right'
-                icon='trash alternate'/>
+              	<p></p>
+              	<Link href="/cabinet">
+          			<Button color='green' content="Открыть" labelPosition='right'
+                icon='arrow alternate circle right'/>
+        		</Link>
               </Grid.Column>
             </Grid>
           </Segment>

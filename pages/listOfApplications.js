@@ -21,12 +21,9 @@ function ListOfApplications({ data, setData }) {
   };
   return <div>
   <Segment></Segment>
-	  
+	<Grid divided='vertically'>
+	  <Grid.Column width={13}>  
 		<Segment>
-			<Link href="/listOfApplications">
-        		<Button color='green'  floated='right' content="Подать заявку" labelPosition='right'
-        		icon='arrow alternate circle right'/>
-      		</Link>
 			<p>Введите параметры поиска:</p>
 			<p></p>
 			<Grid divided='vertically'>
@@ -67,7 +64,16 @@ function ListOfApplications({ data, setData }) {
 		            </AutoForm>
 		        </Grid.Column>
 	        </Grid>     
-	    </Segment>           		  	
+	    </Segment>
+	  </Grid.Column>
+	  <Grid.Column width={3}>
+	  	<p></p>
+	  	<Link href="/form">
+        	<Button color='green'  floated='right' content="Подать заявку" labelPosition='right'
+        	icon='arrow alternate circle right'/>
+      	</Link>
+      </Grid.Column>
+    </Grid>
 
         <Segment>
           <Segment>

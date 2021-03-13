@@ -22,6 +22,11 @@ function ListForm({ data, setData }) {
         <Segment>
           Заявка на кредит
         </Segment>
+        <Segment>
+          	<Link href="/listOfApplications">
+        		Список заявок
+      		</Link>
+        </Segment>
       </Grid.Column>
       <Grid.Column width={8}>
         <Segment>

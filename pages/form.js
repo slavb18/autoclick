@@ -8,13 +8,16 @@ import {RangeStepInput} from 'react-range-step-input';
 import { Checkbox } from 'semantic-ui-react'
 import Link from 'next/link'
 import RangeSlider from 'react-bootstrap-range-slider';
+import { DragSwitch } from 'react-dragswitch'
 
 function ListForm({ data, setData }) {
   	const [ value, setValue ] = React.useState(1000000);
     const [ value2, setValue2 ] = React.useState(100000);
     const [ value3, setValue3 ] = React.useState(6);
+    const [ value4, setValue4 ] = React.useState(50000);
     const CheckboxExampleToggle = () => <Checkbox toggle />
-  const CheckboxExampleSlider = () => <Checkbox slider />
+  	const CheckboxExampleSlider = () => <Checkbox slider />
+  	const [checked, setChecked] = React.useState(true)
 
   return <div>
    <Grid divided='vertically'>
@@ -56,7 +59,16 @@ function ListForm({ data, setData }) {
         		step={3}
       			onChange={changeEvent => setValue3(changeEvent.target.value)}/>
         	<p></p>
+		    Стоимость дополнительного оборудования:
+        	<p></p><RangeSlider
+      			value={value4}
+      			min={50000}
+        		max={250000}
+        		step={1000}
+      			onChange={changeEvent => setValue4(changeEvent.target.value)}/>
+        	<p></p>
 		    Услуги:
+		    <p></p>
 		    <Grid divided='vertically'>
 		    	<Grid.Column width={3}>
 		    		КАСКО
@@ -70,7 +82,7 @@ function ListForm({ data, setData }) {
 		    		Страхование
 		    	</Grid.Column>
 		    	<Grid.Column width={2}>
-		    		<div class="ui fitted toggle checkbox"><input type="checkbox" class="toggle" readonly="" tabindex="0" /><label></label></div>
+		    		<div class="ui fitted toggle checkbox"><input type="checkbox" checked={checked} onChange={(e) => {setChecked(e)}} class="toggle" readonly="" tabindex="0" /><label></label></div>
 		    	</Grid.Column>
 		    </Grid>
         	<p></p>

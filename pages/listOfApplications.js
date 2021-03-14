@@ -69,8 +69,7 @@ function ListOfApplications({ data, setData }) {
 	  <Grid.Column width={3}>
 	  	<p></p>
 	  	<Link href="/form">
-        	<Button color='green'  floated='right' content="Подать заявку" labelPosition='right'
-        	icon='arrow alternate circle right'/>
+        	<Button color='green'  floated='right' content="Подать заявку"/>
       	</Link>
       </Grid.Column>
     </Grid>

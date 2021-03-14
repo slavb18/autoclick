@@ -4,6 +4,7 @@ import { createSchemaBridge } from '../libs/uniforms';
 import PropTypes from 'prop-types'
 import React from 'react';
 import {AutoFields, SubmitField,} from 'uniforms-semantic';
+import Link from 'next/link'
 
 
 import page1 from './dog/page-1.jpg'
@@ -200,6 +201,16 @@ Chat.propTypes = {
   data: PropTypes.object,
   setData: PropTypes.func,
 };
+
+function Transition() {
+  return <div>
+    <Segment>
+      <Link href="/listOfApplications">
+          <Button color='green' content="Список заявок"/>
+      </Link>
+    </Segment>
+  </div>
+}
 
 function Upload({ pages }) {
   return <div>
@@ -430,6 +441,8 @@ export default function Cabinet(props) {
           <ListForm/>
         </Grid.Column>
         <Grid.Column width="4">
+          <Transition />
+          <p></p>
           <ProductForm data={data} setData={setData} />
           <Chat data={data} setData={setData} />
         </Grid.Column>

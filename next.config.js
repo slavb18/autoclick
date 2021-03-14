@@ -5,7 +5,8 @@ const withTM = require('next-transpile-modules')([
   'uniforms-bridge-json-schema',
   'uniforms',
   'uniforms-semantic',
-  'ajv'
+  'ajv',
+  '@ilb/filedossiercomponent'
 ]);
 const basePath = '/autoclick';
 module.exports = withPlugins([withTM], {

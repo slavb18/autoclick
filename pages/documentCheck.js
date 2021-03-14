@@ -219,7 +219,7 @@ function DocumentCheckPage() {
             <Grid.Column>
               <DossierComponent
                 height="calc(100vh - 1rem)"
-                basePath="http://localhost:8080"
+                basePath="https://demo01.ilb.ru/filedossier-web/web"
                 dossierParams={dossierParams}
                 mode="preview"
               />

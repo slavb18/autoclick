@@ -13,10 +13,11 @@
     "_publish": "npm install && npm run build && npm run check:es:build && npm unpublish @ilb/autoclick@1.0.1 && npm publish"
   },
   "dependencies": {
+    "@ilb/filedossiercomponent": "github:ilb/filedossiercomponent",
     "ajv": "^7.1.1",
     "ajv-formats": "^1.5.1",
     "ajv-i18n": "^3.6.0",
-    "next": "^10.0.3",
+    "next": "^10.0.8",
     "next-compose-plugins": "^2.2.0",
     "next-transpile-modules": "^4.1.0",
     "react": "^17.0.1",

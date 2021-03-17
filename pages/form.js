@@ -1,4 +1,4 @@
-import { Modal, Button, Segment, Grid, Tab, Icon, Image} from 'semantic-ui-react'
+import { Modal, Button, Form, Segment, Grid, Tab, Icon, Image} from 'semantic-ui-react'
 import { AutoForm } from 'uniforms-semantic';
 import { createSchemaBridge } from '../libs/uniforms';
 import PropTypes from 'prop-types'
@@ -33,60 +33,73 @@ function ListForm({ data, setData }) {
       </Grid.Column>
       <Grid.Column width={8}>
         <Segment>
-        	Стоимость автомобиля:
-        	<p></p>
-        		<RangeSlider
-        		value={value}
-        		min={1000000}
-        		max={5000000}
-        		step={1000}
-        		onChange={changeEvent => setValue(changeEvent.target.value)}/>
-        	<p></p>
-		    Первоначальный взнос:
-        	<p></p>
-        		<RangeSlider
-      			value={value2}
-      			min={100000}
-        		max={5000000}
-        		step={1000}
-      			onChange={changeEvent => setValue2(changeEvent.target.value)}/>
-        	<p></p>
-		    Срок кредита:
-        	<p></p><RangeSlider
-      			value={value3}
-      			min={6}
-        		max={120}
-        		step={3}
-      			onChange={changeEvent => setValue3(changeEvent.target.value)}/>
-        	<p></p>
-		    Стоимость дополнительного оборудования:
-        	<p></p><RangeSlider
-      			value={value4}
-      			min={50000}
-        		max={250000}
-        		step={1000}
-      			onChange={changeEvent => setValue4(changeEvent.target.value)}/>
-        	<p></p>
-		    Услуги:
-		    <p></p>
-		    <Grid divided='vertically'>
-		    	<Grid.Column width={3}>
-		    		КАСКО
-		    	</Grid.Column>
-		    	<Grid.Column width={2}>
-		    		<div class="ui fitted toggle checkbox"><input type="checkbox" class="toggle" readonly="" tabindex="0" /><label></label></div>
-		    	</Grid.Column>
-		    </Grid>
-		    <Grid divided='vertically'>
-		    	<Grid.Column width={3}>
-		    		Страхование
-		    	</Grid.Column>
-		    	<Grid.Column width={2}>
-		    		<div class="ui fitted toggle checkbox"><input type="checkbox" checked={checked} onChange={(e) => {setChecked(e)}} class="toggle" readonly="" tabindex="0" /><label></label></div>
-		    	</Grid.Column>
-		    </Grid>
-        	<p></p>
-        	<Button color='green'>Рассчитать</Button>
+        	<Form>
+			    <Form.Field>
+			      <label>Стоимость автомобиля:</label>
+			      <p></p>
+			      	<RangeSlider
+	        		value={value}
+	        		min={1000000}
+	        		max={5000000}
+	        		step={1000}
+	        		onChange={changeEvent => setValue(changeEvent.target.value)}/>
+        		  <p></p>
+			    </Form.Field>
+			    <Form.Field>
+			      <label>Первоначальный взнос:</label>
+		        	<p></p>
+		        		<RangeSlider
+		      			value={value2}
+		      			min={100000}
+		        		max={5000000}
+		        		step={1000}
+		      			onChange={changeEvent => setValue2(changeEvent.target.value)}/>
+		        	<p></p>
+			    </Form.Field>
+			    <Form.Field>
+			      <label>Срок кредита:</label>
+		        	<p></p>
+		        		<RangeSlider
+		      			value={value3}
+		      			min={6}
+		        		max={120}
+		        		step={3}
+		      			onChange={changeEvent => setValue3(changeEvent.target.value)}/>
+		        	<p></p>
+			    </Form.Field>
+			    <Form.Field>
+			      <label>Стоимость дополнительного оборудования:</label>
+		        	<p></p><RangeSlider
+		      			value={value4}
+		      			min={50000}
+		        		max={250000}
+		        		step={1000}
+		      			onChange={changeEvent => setValue4(changeEvent.target.value)}/>
+		        	<p></p>
+			    </Form.Field>
+			    <Form.Field>
+			      <label>Услуги:</label>
+				    <p></p>
+				    <Grid divided='vertically'>
+				    	<Grid.Column width={3}>
+				    		КАСКО
+				    	</Grid.Column>
+				    	<Grid.Column width={2}>
+				    		<div class="ui fitted toggle checkbox"><input type="checkbox" class="toggle" readonly="" tabindex="0" /><label></label></div>
+				    	</Grid.Column>
+				    </Grid>
+				    <Grid divided='vertically'>
+				    	<Grid.Column width={3}>
+				    		Страхование
+				    	</Grid.Column>
+				    	<Grid.Column width={2}>
+				    		<div class="ui fitted toggle checkbox"><input type="checkbox" checked={checked} onChange={(e) => {setChecked(e)}} class="toggle" readonly="" tabindex="0" /><label></label></div>
+				    	</Grid.Column>
+				    </Grid>
+		        	<p></p>
+			    </Form.Field>
+			    <Button type='submit' color='green'>Рассчитать</Button>
+			</Form>
         </Segment>
       </Grid.Column>
    </Grid>

@@ -20,7 +20,6 @@ function ListOfApplications({ data, setData }) {
       },
   };
   return <div>
-  <Segment></Segment>
 	<Grid divided='vertically'>
 	  <Grid.Column width={13}>  
 		<Segment>
@@ -171,7 +170,12 @@ export default function Cabinet(props) {
   return (
     <Grid>
       <Grid.Row>
-        <Grid.Column width="15">
+      	<Grid.Column width="100%">
+      		<Segment></Segment>
+      	</Grid.Column>
+      </Grid.Row>
+      <Grid.Row>
+        <Grid.Column width="80%">
           <ListOfApplications/>
         </Grid.Column>
       </Grid.Row>

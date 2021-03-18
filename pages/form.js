@@ -1,4 +1,4 @@
-import { Modal, Button, Form, Segment, Grid, Tab, Icon, Image} from 'semantic-ui-react'
+import { Modal, Button, Form, Segment, Grid, Tab, Icon, Image, List} from 'semantic-ui-react'
 import { AutoForm } from 'uniforms-semantic';
 import { createSchemaBridge } from '../libs/uniforms';
 import PropTypes from 'prop-types'
@@ -33,7 +33,7 @@ function ListForm({ data, setData }) {
       </Grid.Column>
       <Grid.Column width={8}>
         <Segment>
-        	<Form>
+        	<Form widths='equal'>
 			    <Form.Field>
 			      <label>Стоимость автомобиля:</label>
 			      <p></p>
@@ -80,22 +80,31 @@ function ListForm({ data, setData }) {
 			    <Form.Field>
 			      <label>Услуги:</label>
 				    <p></p>
-				    <Grid divided='vertically'>
-				    	<Grid.Column width={3}>
-				    		КАСКО
-				    	</Grid.Column>
-				    	<Grid.Column width={2}>
-				    		<div class="ui fitted toggle checkbox"><input type="checkbox" class="toggle" readonly="" tabindex="0" /><label></label></div>
-				    	</Grid.Column>
-				    </Grid>
-				    <Grid divided='vertically'>
-				    	<Grid.Column width={3}>
-				    		Страхование
-				    	</Grid.Column>
-				    	<Grid.Column width={2}>
-				    		<div class="ui fitted toggle checkbox"><input type="checkbox" checked={checked} onChange={(e) => {setChecked(e)}} class="toggle" readonly="" tabindex="0" /><label></label></div>
-				    	</Grid.Column>
-				    </Grid>
+				    <List horizontal>
+			            <List.Item>
+							<List.Content>
+								<label>КАСКО </label>
+							</List.Content>
+						</List.Item>
+						<List.Item>
+							<List.Content>
+								<div class="ui fitted toggle checkbox"><input type="checkbox" class="toggle" readonly="" tabindex="0" /><label></label></div>
+							</List.Content>
+						</List.Item>
+					</List>
+					<List horizontal>
+			            <List.Item>
+							<List.Content>
+								<label>Страхование </label>
+							</List.Content>
+						</List.Item>
+						<List.Item>
+							<List.Content>
+								<div class="ui fitted toggle checkbox"><input type="checkbox" checked={checked} onChange={(e) => {setChecked(e)}} class="toggle" readonly="" tabindex="0" /><label></label></div>
+							</List.Content>
+						</List.Item>
+					</List>
+				    
 		        	<p></p>
 			    </Form.Field>
 			    <Button type='submit' color='green'>Рассчитать</Button>
@@ -126,63 +135,61 @@ function ProductForm({ data, setData }) {
   return <div>
     <Segment>
       <h1>Подобранный продукт</h1>
-      <table>
-        <tr>
-          <td>Срок: </td>
-          <td>Ставка: </td>
-          <td>Платеж: </td>
-        </tr>
-        <tr>
-          <td>
-            {data.period} мес.
-          </td>
-          <td>
-            {data.rate} %
-          </td>
-          <td>
-            {data.payment} ₽
-          </td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td>Стоимость авто: </td>
-          <td>Первоначальный взнос: </td>
-        </tr>
-        <tr>
-          <td>
-            {data.productAmount} ₽
-          </td>
-          <td>
-            {data.downPayment} ₽
-          </td>
-        </tr>
-      </table>
-      <p>Услуги:</p>
-      <table>
-        <tr>
-          <td>КАСКО: </td>
-          <td>Страхование: </td>
-        </tr>
-        <tr>
-          <td>
-            {data.KASKO} ₽
-          </td>
-          <td>
-            {data.insurance} ₽
-          </td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td>Стоимость доп. оборудования: </td>
-        </tr>
-        <tr>
-          <td>
-            {data.equipment} ₽
-          </td>
-        </tr>
-      </table>
+    	<List horizontal>
+            <List.Item>
+				<List.Content>
+					<label>Срок: </label>
+				</List.Content>
+				<List.Content>
+					<label>{data.period} мес.</label>
+				</List.Content>
+			</List.Item>
+			<List.Item>
+				<List.Content>
+					<label>Ставка: </label>
+				</List.Content>
+				<List.Content>
+					<label>{data.rate} %</label>
+				</List.Content>
+			</List.Item>
+			<List.Item>
+				<List.Content>
+					<label>Платеж: </label>
+				</List.Content>
+				<List.Content>
+					<label>{data.payment} ₽</label>
+				</List.Content>
+			</List.Item>
+		</List>
+		<p></p>
+		<p>Услуги: </p>
+      	<List horizontal>
+            <List.Item>
+				<List.Content>
+					<label>КАСКО: </label>
+				</List.Content>
+				<List.Content>
+					<label>{data.KASKO} ₽</label>
+				</List.Content>
+			</List.Item>
+			<List.Item>
+				<List.Content>
+					<label>Страхование: </label>
+				</List.Content>
+				<List.Content>
+					<label>{data.insurance} ₽</label>
+				</List.Content>
+			</List.Item>
+			<List.Item>
+				<List.Content>
+					<label>Стоимость доп. оборудования: </label>
+				</List.Content>
+				<List.Content>
+					<label>{data.equipment} ₽</label>
+				</List.Content>
+			</List.Item>
+		</List>
+      
       <p></p>
         <Button color='green' content="Отправить на рассмотрение"/>
     </Segment>

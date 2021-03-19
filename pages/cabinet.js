@@ -32,31 +32,31 @@ function ProductForm({ data, setData }) {
     <Segment>
       <h1>Подобранный продукт</h1>
       <List horizontal>
-        <List.Item>
-          <List.Content>
-            <label>Срок: </label>
-          </List.Content>
-          <List.Content>
-            <label>{data.period} мес.</label>
-          </List.Content>
-        </List.Item>
-        <List.Item>
-          <List.Content>
-            <label>Ставка: </label>
-          </List.Content>
-          <List.Content>
-            <label>{data.rate} %</label>
-          </List.Content>
-        </List.Item>
-        <List.Item>
-          <List.Content>
-            <label>Платеж: </label>
-          </List.Content>
-          <List.Content>
-            <label>{data.payment} ₽</label>
-          </List.Content>
-        </List.Item>
-      </List>
+            <List.Item>
+        <List.Content>
+          <label>Срок: </label>
+        </List.Content>
+        <List.Content>
+          <label>{data.period} мес.</label>
+        </List.Content>
+      </List.Item>
+      <List.Item>
+        <List.Content>
+          <label>Ставка: </label>
+        </List.Content>
+        <List.Content>
+          <label>{data.rate} %</label>
+        </List.Content>
+      </List.Item>
+      <List.Item>
+        <List.Content>
+          <label>Платеж: </label>
+        </List.Content>
+        <List.Content>
+          <label>{data.payment} ₽</label>
+        </List.Content>
+      </List.Item>
+    </List>
       <List horizontal>
         <List.Item>
           <List.Content>

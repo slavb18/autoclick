@@ -33,41 +33,48 @@ function ListForm({ data, setData }) {
       </Grid.Column>
       <Grid.Column width={8}>
         <Segment>
-        	<Form widths='equal'>
-			    <Form.Field>
-			      <label>Стоимость автомобиля:</label>
-			      <p></p>
-			      	<RangeSlider
-	        		value={value}
-	        		min={1000000}
-	        		max={5000000}
-	        		step={1000}
-	        		onChange={changeEvent => setValue(changeEvent.target.value)}/>
-        		  <p></p>
-			    </Form.Field>
-			    <Form.Field>
-			      <label>Первоначальный взнос:</label>
-		        	<p></p>
-		        		<RangeSlider
-		      			value={value2}
-		      			min={100000}
+        	<List verticalAlign='middle'>
+        	 	<List.Item>
+        	 		<List.Content>
+				      <label>Стоимость автомобиля:</label>
+				      <p></p>
+				      	<RangeSlider
+		        		value={value}
+		        		min={1000000}
 		        		max={5000000}
 		        		step={1000}
-		      			onChange={changeEvent => setValue2(changeEvent.target.value)}/>
-		        	<p></p>
-			    </Form.Field>
-			    <Form.Field>
-			      <label>Срок кредита:</label>
-		        	<p></p>
-		        		<RangeSlider
-		      			value={value3}
-		      			min={6}
-		        		max={120}
-		        		step={3}
-		      			onChange={changeEvent => setValue3(changeEvent.target.value)}/>
-		        	<p></p>
-			    </Form.Field>
-			    <Form.Field>
+		        		onChange={changeEvent => setValue(changeEvent.target.value)}/>
+	        		  <p></p>
+	        		</List.Content>
+	        	</List.Item>
+			    <List.Item>
+        	 		<List.Content>
+				      <label>Первоначальный взнос:</label>
+			        	<p></p>
+			        		<RangeSlider
+			      			value={value2}
+			      			min={100000}
+			        		max={5000000}
+			        		step={1000}
+			      			onChange={changeEvent => setValue2(changeEvent.target.value)}/>
+			        	<p></p>
+				    </List.Content>
+	        	</List.Item>
+	        	<List.Item>
+        	 		<List.Content>
+				      <label>Срок кредита:</label>
+			        	<p></p>
+			        		<RangeSlider
+			      			value={value3}
+			      			min={6}
+			        		max={120}
+			        		step={3}
+			      			onChange={changeEvent => setValue3(changeEvent.target.value)}/>
+			        	<p></p>
+			    	</List.Content>
+	        	</List.Item>
+	        	<List.Item>
+        	 		<List.Content>
 			      <label>Стоимость дополнительного оборудования:</label>
 		        	<p></p><RangeSlider
 		      			value={value4}
@@ -76,8 +83,9 @@ function ListForm({ data, setData }) {
 		        		step={1000}
 		      			onChange={changeEvent => setValue4(changeEvent.target.value)}/>
 		        	<p></p>
-			    </Form.Field>
-			    <Form.Field>
+			    	</List.Content>
+	        	</List.Item>
+	        </List>
 			      <label>Услуги:</label>
 				    <p></p>
 				    <List horizontal>
@@ -104,11 +112,13 @@ function ListForm({ data, setData }) {
 							</List.Content>
 						</List.Item>
 					</List>
-				    
-		        	<p></p>
-			    </Form.Field>
-			    <Button type='submit' color='green'>Рассчитать</Button>
-			</Form>
+			    <List>
+			    <List.Item>
+					<List.Content>
+						<Button type='submit' color='green'>Рассчитать</Button>
+					</List.Content>
+				</List.Item>
+				</List>
         </Segment>
       </Grid.Column>
    </Grid>
@@ -211,21 +221,18 @@ export default function Cabinet(props) {
   // const handler = (formData) => alert(JSON.stringify(formData));
 
   return (
-    <Grid  divided='vertically'>
-      <Grid.Row>
-	      <Grid.Column width="17">
-	      <Segment></Segment>
-	      </Grid.Column>
-      </Grid.Row>
-      <Grid.Row>
-        <Grid.Column width="11">
-          <ListForm/>
-        </Grid.Column>
-        <Grid.Column width="4">
-          <ProductForm data={data} setData={setData} />
-        </Grid.Column>
-      </Grid.Row>
-    </Grid>
+  	<List divided verticalAlign='middle'>
+  	<Segment></Segment>
+  		<List.Item widths="equal">
+  			<List.Content floated='right'>
+  				<ProductForm data={data} setData={setData} />
+  			</List.Content>
+  			<List.Content>
+  				<ListForm/>
+  			</List.Content>
+  		</List.Item>
+  	</List>
+    
   )
 }
 

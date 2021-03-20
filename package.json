@@ -13,7 +13,7 @@
     "_publish": "npm install && npm run build && npm run check:es:build && npm unpublish @ilb/autoclick@1.0.1 && npm publish"
   },
   "dependencies": {
-    "@ilb/filedossiercomponent": "^2.0.9",
+    "@ilb/filedossiercomponent": "^2.0.10",
     "ajv": "^7.1.1",
     "ajv-formats": "^1.5.1",
     "ajv-i18n": "^3.6.0",

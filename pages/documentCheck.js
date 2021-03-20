@@ -1,4 +1,4 @@
-import { DossierComponent } from '@ilb/filedossiercomponent/src/index';
+import { DossierComponent } from '@ilb/filedossiercomponent';
 import '@ilb/filedossiercomponent/src/index.css';
 import Head from 'next/head';
 import { withRouter } from 'next/router';

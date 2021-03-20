@@ -1,4 +1,4 @@
-import { Modal, Button, Segment, Grid, Tab, Icon, Image} from 'semantic-ui-react'
+import { Modal, Button, Form, Segment, Grid, Tab, Icon, Image, List} from 'semantic-ui-react'
 import { AutoForm } from 'uniforms-semantic';
 import { createSchemaBridge } from '../libs/uniforms';
 import PropTypes from 'prop-types'
@@ -33,60 +33,92 @@ function ListForm({ data, setData }) {
       </Grid.Column>
       <Grid.Column width={8}>
         <Segment>
-        	Стоимость автомобиля:
-        	<p></p>
-        		<RangeSlider
-        		value={value}
-        		min={1000000}
-        		max={5000000}
-        		step={1000}
-        		onChange={changeEvent => setValue(changeEvent.target.value)}/>
-        	<p></p>
-		    Первоначальный взнос:
-        	<p></p>
-        		<RangeSlider
-      			value={value2}
-      			min={100000}
-        		max={5000000}
-        		step={1000}
-      			onChange={changeEvent => setValue2(changeEvent.target.value)}/>
-        	<p></p>
-		    Срок кредита:
-        	<p></p><RangeSlider
-      			value={value3}
-      			min={6}
-        		max={120}
-        		step={3}
-      			onChange={changeEvent => setValue3(changeEvent.target.value)}/>
-        	<p></p>
-		    Стоимость дополнительного оборудования:
-        	<p></p><RangeSlider
-      			value={value4}
-      			min={50000}
-        		max={250000}
-        		step={1000}
-      			onChange={changeEvent => setValue4(changeEvent.target.value)}/>
-        	<p></p>
-		    Услуги:
-		    <p></p>
-		    <Grid divided='vertically'>
-		    	<Grid.Column width={3}>
-		    		КАСКО
-		    	</Grid.Column>
-		    	<Grid.Column width={2}>
-		    		<div class="ui fitted toggle checkbox"><input type="checkbox" class="toggle" readonly="" tabindex="0" /><label></label></div>
-		    	</Grid.Column>
-		    </Grid>
-		    <Grid divided='vertically'>
-		    	<Grid.Column width={3}>
-		    		Страхование
-		    	</Grid.Column>
-		    	<Grid.Column width={2}>
-		    		<div class="ui fitted toggle checkbox"><input type="checkbox" checked={checked} onChange={(e) => {setChecked(e)}} class="toggle" readonly="" tabindex="0" /><label></label></div>
-		    	</Grid.Column>
-		    </Grid>
-        	<p></p>
-        	<Button color='green'>Рассчитать</Button>
+        	<List verticalAlign='middle'>
+        	 	<List.Item>
+        	 		<List.Content>
+				      <label>Стоимость автомобиля:</label>
+				      <p></p>
+				      	<RangeSlider
+		        		value={value}
+		        		min={1000000}
+		        		max={5000000}
+		        		step={1000}
+		        		onChange={changeEvent => setValue(changeEvent.target.value)}/>
+	        		  <p></p>
+	        		</List.Content>
+	        	</List.Item>
+			    <List.Item>
+        	 		<List.Content>
+				      <label>Первоначальный взнос:</label>
+			        	<p></p>
+			        		<RangeSlider
+			      			value={value2}
+			      			min={100000}
+			        		max={5000000}
+			        		step={1000}
+			      			onChange={changeEvent => setValue2(changeEvent.target.value)}/>
+			        	<p></p>
+				    </List.Content>
+	        	</List.Item>
+	        	<List.Item>
+        	 		<List.Content>
+				      <label>Срок кредита:</label>
+			        	<p></p>
+			        		<RangeSlider
+			      			value={value3}
+			      			min={6}
+			        		max={120}
+			        		step={3}
+			      			onChange={changeEvent => setValue3(changeEvent.target.value)}/>
+			        	<p></p>
+			    	</List.Content>
+	        	</List.Item>
+	        	<List.Item>
+        	 		<List.Content>
+			      <label>Стоимость дополнительного оборудования:</label>
+		        	<p></p><RangeSlider
+		      			value={value4}
+		      			min={50000}
+		        		max={250000}
+		        		step={1000}
+		      			onChange={changeEvent => setValue4(changeEvent.target.value)}/>
+		        	<p></p>
+			    	</List.Content>
+	        	</List.Item>
+	        </List>
+			      <label>Услуги:</label>
+				    <p></p>
+				    <List horizontal>
+			            <List.Item>
+							<List.Content>
+								<label>КАСКО </label>
+							</List.Content>
+						</List.Item>
+						<List.Item>
+							<List.Content>
+								<div class="ui fitted toggle checkbox"><input type="checkbox" class="toggle" readonly="" tabindex="0" /><label></label></div>
+							</List.Content>
+						</List.Item>
+					</List>
+					<List horizontal>
+			            <List.Item>
+							<List.Content>
+								<label>Страхование </label>
+							</List.Content>
+						</List.Item>
+						<List.Item>
+							<List.Content>
+								<div class="ui fitted toggle checkbox"><input type="checkbox" checked={checked} onChange={(e) => {setChecked(e)}} class="toggle" readonly="" tabindex="0" /><label></label></div>
+							</List.Content>
+						</List.Item>
+					</List>
+			    <List>
+			    <List.Item>
+					<List.Content>
+						<Button type='submit' color='green'>Рассчитать</Button>
+					</List.Content>
+				</List.Item>
+				</List>
         </Segment>
       </Grid.Column>
    </Grid>
@@ -113,63 +145,61 @@ function ProductForm({ data, setData }) {
   return <div>
     <Segment>
       <h1>Подобранный продукт</h1>
-      <table>
-        <tr>
-          <td>Срок: </td>
-          <td>Ставка: </td>
-          <td>Платеж: </td>
-        </tr>
-        <tr>
-          <td>
-            {data.period} мес.
-          </td>
-          <td>
-            {data.rate} %
-          </td>
-          <td>
-            {data.payment} ₽
-          </td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td>Стоимость авто: </td>
-          <td>Первоначальный взнос: </td>
-        </tr>
-        <tr>
-          <td>
-            {data.productAmount} ₽
-          </td>
-          <td>
-            {data.downPayment} ₽
-          </td>
-        </tr>
-      </table>
-      <p>Услуги:</p>
-      <table>
-        <tr>
-          <td>КАСКО: </td>
-          <td>Страхование: </td>
-        </tr>
-        <tr>
-          <td>
-            {data.KASKO} ₽
-          </td>
-          <td>
-            {data.insurance} ₽
-          </td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td>Стоимость доп. оборудования: </td>
-        </tr>
-        <tr>
-          <td>
-            {data.equipment} ₽
-          </td>
-        </tr>
-      </table>
+    	<List horizontal>
+            <List.Item>
+				<List.Content>
+					<label>Срок: </label>
+				</List.Content>
+				<List.Content>
+					<label>{data.period} мес.</label>
+				</List.Content>
+			</List.Item>
+			<List.Item>
+				<List.Content>
+					<label>Ставка: </label>
+				</List.Content>
+				<List.Content>
+					<label>{data.rate} %</label>
+				</List.Content>
+			</List.Item>
+			<List.Item>
+				<List.Content>
+					<label>Платеж: </label>
+				</List.Content>
+				<List.Content>
+					<label>{data.payment} ₽</label>
+				</List.Content>
+			</List.Item>
+		</List>
+		<p></p>
+		<p>Услуги: </p>
+      	<List horizontal>
+            <List.Item>
+				<List.Content>
+					<label>КАСКО: </label>
+				</List.Content>
+				<List.Content>
+					<label>{data.KASKO} ₽</label>
+				</List.Content>
+			</List.Item>
+			<List.Item>
+				<List.Content>
+					<label>Страхование: </label>
+				</List.Content>
+				<List.Content>
+					<label>{data.insurance} ₽</label>
+				</List.Content>
+			</List.Item>
+			<List.Item>
+				<List.Content>
+					<label>Стоимость доп. оборудования: </label>
+				</List.Content>
+				<List.Content>
+					<label>{data.equipment} ₽</label>
+				</List.Content>
+			</List.Item>
+		</List>
+      
       <p></p>
         <Button color='green' content="Отправить на рассмотрение"/>
     </Segment>
@@ -191,21 +221,18 @@ export default function Cabinet(props) {
   // const handler = (formData) => alert(JSON.stringify(formData));
 
   return (
-    <Grid  divided='vertically'>
-      <Grid.Row>
-	      <Grid.Column width="17">
-	      <Segment></Segment>
-	      </Grid.Column>
-      </Grid.Row>
-      <Grid.Row>
-        <Grid.Column width="11">
-          <ListForm/>
-        </Grid.Column>
-        <Grid.Column width="4">
-          <ProductForm data={data} setData={setData} />
-        </Grid.Column>
-      </Grid.Row>
-    </Grid>
+  	<List divided verticalAlign='middle'>
+  	<Segment></Segment>
+  		<List.Item widths="equal">
+  			<List.Content floated='right'>
+  				<ProductForm data={data} setData={setData} />
+  			</List.Content>
+  			<List.Content>
+  				<ListForm/>
+  			</List.Content>
+  		</List.Item>
+  	</List>
+    
   )
 }
 

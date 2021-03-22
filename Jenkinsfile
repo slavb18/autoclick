@@ -9,6 +9,7 @@ pipeline {
             steps {
                 #sh 'npm run _publish'
                 #sh 'sudo /opt/bin/npmdeploy @ilb/autoclick autoclick latest /home/autoclick'
+                sh 'sudo /opt/bin/npmdeploygit autoclick'
             }
         }
     }

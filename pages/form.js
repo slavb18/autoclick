@@ -1,4 +1,4 @@
-import { Modal, Button, Form, Segment, Grid, Tab, Icon, Image, List} from 'semantic-ui-react'
+import { Modal, Button, Form, Segment, Grid, Tab, Icon, Menu, MenuItem, Image, List} from 'semantic-ui-react'
 import { AutoForm } from 'uniforms-semantic';
 import { createSchemaBridge } from '../libs/uniforms';
 import PropTypes from 'prop-types'
@@ -9,119 +9,120 @@ import { Checkbox } from 'semantic-ui-react'
 import Link from 'next/link'
 import RangeSlider from 'react-bootstrap-range-slider';
 import { DragSwitch } from 'react-dragswitch'
+import { Component } from 'react'
+
+function MenuForm() {
+  const handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  const { activeItem } = 'request'
+  return <div>
+  	<Menu tabular>
+        <Menu.Item
+        	name='Заявка на кредит'
+          	active={activeItem === 'request'}
+          	onClick="/listOfApplications"/>
+        <Menu.Item
+        	name='Список заявок'
+          	active={activeItem === 'list'}/>
+      </Menu>
+  </div>
+}
 
 function ListForm({ data, setData }) {
-  	const [ value, setValue ] = React.useState(1000000);
+    const [ value, setValue ] = React.useState(1000000);
     const [ value2, setValue2 ] = React.useState(100000);
     const [ value3, setValue3 ] = React.useState(6);
     const [ value4, setValue4 ] = React.useState(50000);
     const CheckboxExampleToggle = () => <Checkbox toggle />
-  	const CheckboxExampleSlider = () => <Checkbox slider />
-  	const [checked, setChecked] = React.useState(true)
+    const CheckboxExampleSlider = () => <Checkbox slider />
+    const [checked, setChecked] = React.useState(true)
 
   return <div>
-   <Grid divided='vertically'>
-      <Grid.Column width={3}>
-        <Segment>
-          Заявка на кредит
-        </Segment>
-        <Segment>
-          	<Link href="/listOfApplications">
-        		Список заявок
-      		</Link>
-        </Segment>
-      </Grid.Column>
-      <Grid.Column width={8}>
-        <Segment>
-        	<List verticalAlign='middle'>
-        	 	<List.Item>
-        	 		<List.Content>
-				      <label>Стоимость автомобиля:</label>
-				      <p></p>
-				      	<RangeSlider
-		        		value={value}
-		        		min={1000000}
-		        		max={5000000}
-		        		step={1000}
-		        		onChange={changeEvent => setValue(changeEvent.target.value)}/>
-	        		  <p></p>
-	        		</List.Content>
-	        	</List.Item>
-			    <List.Item>
-        	 		<List.Content>
-				      <label>Первоначальный взнос:</label>
-			        	<p></p>
-			        		<RangeSlider
-			      			value={value2}
-			      			min={100000}
-			        		max={5000000}
-			        		step={1000}
-			      			onChange={changeEvent => setValue2(changeEvent.target.value)}/>
-			        	<p></p>
-				    </List.Content>
-	        	</List.Item>
-	        	<List.Item>
-        	 		<List.Content>
-				      <label>Срок кредита:</label>
-			        	<p></p>
-			        		<RangeSlider
-			      			value={value3}
-			      			min={6}
-			        		max={120}
-			        		step={3}
-			      			onChange={changeEvent => setValue3(changeEvent.target.value)}/>
-			        	<p></p>
-			    	</List.Content>
-	        	</List.Item>
-	        	<List.Item>
-        	 		<List.Content>
-			      <label>Стоимость дополнительного оборудования:</label>
-		        	<p></p><RangeSlider
-		      			value={value4}
-		      			min={50000}
-		        		max={250000}
-		        		step={1000}
-		      			onChange={changeEvent => setValue4(changeEvent.target.value)}/>
-		        	<p></p>
-			    	</List.Content>
-	        	</List.Item>
-	        </List>
-			      <label>Услуги:</label>
-				    <p></p>
-				    <List horizontal>
-			            <List.Item>
-							<List.Content>
-								<label>КАСКО </label>
-							</List.Content>
-						</List.Item>
-						<List.Item>
-							<List.Content>
-								<div class="ui fitted toggle checkbox"><input type="checkbox" class="toggle" readonly="" tabindex="0" /><label></label></div>
-							</List.Content>
-						</List.Item>
-					</List>
-					<List horizontal>
-			            <List.Item>
-							<List.Content>
-								<label>Страхование </label>
-							</List.Content>
-						</List.Item>
-						<List.Item>
-							<List.Content>
-								<div class="ui fitted toggle checkbox"><input type="checkbox" checked={checked} onChange={(e) => {setChecked(e)}} class="toggle" readonly="" tabindex="0" /><label></label></div>
-							</List.Content>
-						</List.Item>
-					</List>
-			    <List>
-			    <List.Item>
-					<List.Content>
-						<Button type='submit' color='green'>Рассчитать</Button>
-					</List.Content>
-				</List.Item>
-				</List>
-        </Segment>
-      </Grid.Column>
-   </Grid>
+  <Segment>
+    <List verticalAlign='middle'>
+        <List.Item>
+            <List.Content>
+	          	<label>Стоимость автомобиля:</label>
+	          	<p></p>
+	          	<RangeSlider
+	            value={value}
+	            min={1000000}
+	            max={5000000}
+	            step={1000}
+	            onChange={changeEvent => setValue(changeEvent.target.value)}/>
+	            <p></p>
+          	</List.Content>
+          	<List.Content>
+	            <p></p>
+	            <label>Первоначальный взнос:</label>
+	          	<p></p>
+	          	<RangeSlider
+	          	value={value2}
+	          	min={100000}
+	          	max={5000000}
+	          	step={1000}
+	          	onChange={changeEvent => setValue2(changeEvent.target.value)}/>
+	          	<p></p>
+	        </List.Content>
+	        <List.Content>
+	          	<p></p>
+	          	<label>Срок кредита:</label>
+	          	<p></p>
+	          	<RangeSlider
+	          	value={value3}
+	          	min={6}
+	          	max={120}
+	         	step={3}
+	          	onChange={changeEvent => setValue3(changeEvent.target.value)}/>
+	          	<p></p>
+	        </List.Content>
+	        <List.Content>
+	        	<p></p>
+	          	<label>Стоимость дополнительного оборудования:</label>
+	            <p></p><RangeSlider
+	            value={value4}
+	            min={50000}
+	            max={250000}
+	            step={1000}
+	            onChange={changeEvent => setValue4(changeEvent.target.value)}/>
+	            <p></p>
+	        </List.Content>
+      </List.Item>
+    </List>
+    <p></p>
+    <label>Услуги:</label>
+    <p></p>
+    <List horizontal>
+      <List.Item>
+        <List.Content>
+          <label>КАСКО </label>
+        </List.Content>
+      </List.Item>
+      <List.Item>
+        <List.Content>
+          <div class="ui fitted toggle checkbox"><input type="checkbox" class="toggle" readonly="" tabindex="0" /><label></label></div>
+        </List.Content>
+      </List.Item>
+    </List>
+    <List horizontal>
+      <List.Item>
+        <List.Content>
+          <label>Страхование </label>
+        </List.Content>
+      </List.Item>
+      <List.Item>
+        <List.Content>
+          <div class="ui fitted toggle checkbox"><input type="checkbox" checked={checked} onChange={(e) => {setChecked(e)}} class="toggle" readonly="" tabindex="0" /><label></label></div>
+        </List.Content>
+      </List.Item>
+    </List>
+    <List>
+      <List.Item>
+        <List.Content>
+          <Button type='submit' color='green'>Рассчитать</Button>
+        </List.Content>
+      </List.Item>
+    </List>
+  </Segment>
   </div>
 }
 
@@ -145,60 +146,60 @@ function ProductForm({ data, setData }) {
   return <div>
     <Segment>
       <h1>Подобранный продукт</h1>
-    	<List horizontal>
+      <List horizontal>
             <List.Item>
-				<List.Content>
-					<label>Срок: </label>
-				</List.Content>
-				<List.Content>
-					<label>{data.period} мес.</label>
-				</List.Content>
-			</List.Item>
-			<List.Item>
-				<List.Content>
-					<label>Ставка: </label>
-				</List.Content>
-				<List.Content>
-					<label>{data.rate} %</label>
-				</List.Content>
-			</List.Item>
-			<List.Item>
-				<List.Content>
-					<label>Платеж: </label>
-				</List.Content>
-				<List.Content>
-					<label>{data.payment} ₽</label>
-				</List.Content>
-			</List.Item>
-		</List>
-		<p></p>
-		<p>Услуги: </p>
-      	<List horizontal>
+        <List.Content>
+          <label>Срок: </label>
+        </List.Content>
+        <List.Content>
+          <label>{data.period} мес.</label>
+        </List.Content>
+      </List.Item>
+      <List.Item>
+        <List.Content>
+          <label>Ставка: </label>
+        </List.Content>
+        <List.Content>
+          <label>{data.rate} %</label>
+        </List.Content>
+      </List.Item>
+      <List.Item>
+        <List.Content>
+          <label>Платеж: </label>
+        </List.Content>
+        <List.Content>
+          <label>{data.payment} ₽</label>
+        </List.Content>
+      </List.Item>
+    </List>
+    <p></p>
+    <p>Услуги: </p>
+        <List horizontal>
             <List.Item>
-				<List.Content>
-					<label>КАСКО: </label>
-				</List.Content>
-				<List.Content>
-					<label>{data.KASKO} ₽</label>
-				</List.Content>
-			</List.Item>
-			<List.Item>
-				<List.Content>
-					<label>Страхование: </label>
-				</List.Content>
-				<List.Content>
-					<label>{data.insurance} ₽</label>
-				</List.Content>
-			</List.Item>
-			<List.Item>
-				<List.Content>
-					<label>Стоимость доп. оборудования: </label>
-				</List.Content>
-				<List.Content>
-					<label>{data.equipment} ₽</label>
-				</List.Content>
-			</List.Item>
-		</List>
+        <List.Content>
+          <label>КАСКО: </label>
+        </List.Content>
+        <List.Content>
+          <label>{data.KASKO} ₽</label>
+        </List.Content>
+      </List.Item>
+      <List.Item>
+        <List.Content>
+          <label>Страхование: </label>
+        </List.Content>
+        <List.Content>
+          <label>{data.insurance} ₽</label>
+        </List.Content>
+      </List.Item>
+      <List.Item>
+        <List.Content>
+          <label>Стоимость доп. оборудования: </label>
+        </List.Content>
+        <List.Content>
+          <label>{data.equipment} ₽</label>
+        </List.Content>
+      </List.Item>
+    </List>
       
       <p></p>
         <Button color='green' content="Отправить на рассмотрение"/>
@@ -221,17 +222,27 @@ export default function Cabinet(props) {
   // const handler = (formData) => alert(JSON.stringify(formData));
 
   return (
-  	<List divided verticalAlign='middle'>
-  	<Segment></Segment>
-  		<List.Item widths="equal">
-  			<List.Content floated='right'>
-  				<ProductForm data={data} setData={setData} />
-  			</List.Content>
+  	<List verticalAlign='middle'>
+  		<List.Item>
   			<List.Content>
-  				<ListForm/>
-  			</List.Content>
-  		</List.Item>
-  	</List>
+		    	<Segment><MenuForm/></Segment>
+	        </List.Content>
+	        <List.Content>
+		    <List horizontal relaxed='very'>
+		      	<List.Item>
+		        	<List.Content>
+		        		<ListForm/>
+		        	</List.Content>
+		      	</List.Item>
+		      	<List.Item >
+		        	<List.Content floated='right'>
+		          		<ProductForm data={data} setData={setData} />
+		        	</List.Content>
+		      	</List.Item>
+		    </List>
+		    </List.Content>
+		</List.Item>
+	</List>
     
   )
 }

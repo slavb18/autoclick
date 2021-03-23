@@ -9,6 +9,33 @@ import Link from 'next/link'
 import doc1 from './dog/document.jpg'
 import doc2 from './dog/document2.png'
 
+function Search() {
+	return <div>
+		<Segment>
+			<p>Введите параметры поиска:</p>
+			<p></p>
+			<Form>
+				<Form.Group>
+		          <Form.Input placeholder='Фамилия' />
+		          <Form.Input placeholder='Имя' />
+		          <Form.Input placeholder='Отчество' />
+		          <Form.Input placeholder='Телефон' />
+		        </Form.Group>
+			    <Button type='submit' color='green'>Искать</Button>
+			</Form>
+	    </Segment>
+	</div>
+}
+
+function Transition() {
+	return <div>
+		<Link href="/form">
+        	<Button color='green' content="Подать заявку"/>
+      	</Link>
+	</div>
+}
+
+
 function ListOfApplications({ data, setData }) {
   const [open, setOpen] = React.useState(false);
   const onSubmit = (formData) => { setOpen(false); setData(formData); }
@@ -20,30 +47,6 @@ function ListOfApplications({ data, setData }) {
       },
   };
   return <div>
-	<Grid divided='vertically'>
-	  <Grid.Column width={13}>  
-		<Segment>
-			<p>Введите параметры поиска:</p>
-			<p></p>
-			<Form>
-				<Form.Group widths='equal'>
-		          <Form.Input placeholder='Фамилия' />
-		          <Form.Input placeholder='Имя' />
-		          <Form.Input placeholder='Отчество' />
-		          <Form.Input placeholder='Телефон' />
-		        </Form.Group>
-			    <Button type='submit' color='green'>Искать</Button>
-			</Form>
-	    </Segment>
-	  </Grid.Column>
-	  <Grid.Column width={3}>
-	  	<p></p>
-	  	<Link href="/form">
-        	<Button color='green'  floated='right' content="Подать заявку"/>
-      	</Link>
-      </Grid.Column>
-    </Grid>
-
         <Segment>
           <List divided verticalAlign='middle'>
             <List.Item>
@@ -167,19 +170,30 @@ export default function Cabinet(props) {
 
   // const handler = (formData) => alert(JSON.stringify(formData));
 
+	  	
   return (
-    <Grid>
-      <Grid.Row>
-      	<Grid.Column width="100%">
-      		<Segment></Segment>
-      	</Grid.Column>
-      </Grid.Row>
-      <Grid.Row>
-        <Grid.Column width="80%">
-          <ListOfApplications/>
-        </Grid.Column>
-      </Grid.Row>
-    </Grid>
+    <List verticalAlign='middle'>
+  		<List.Item>
+  			<List.Content>
+		    	<List horizontal>
+				    <List.Item>
+				      <List.Content>
+				        <Search/>
+				      </List.Content>
+				    </List.Item>
+				    <List.Item>
+				      <List.Content>
+				        <Transition/>
+				      </List.Content>
+				    </List.Item>
+				</List>
+	        </List.Content>
+	        <List.Content>
+	        	<ListOfApplications/>
+	        </List.Content>
+		</List.Item>
+
+	</List>
   )
 }
 

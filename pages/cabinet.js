@@ -30,9 +30,14 @@ function ProductForm({ data, setData }) {
 
   return <div>
     <Segment>
-      <h1>Подобранный продукт</h1>
-      <List horizontal>
-            <List.Item>
+      
+    <List horizontal>
+      <List.Item>
+        <List.Content>
+          <h1>Подобранный продукт</h1>
+        </List.Content>
+      </List.Item>
+      <List.Item>
         <List.Content>
           <label>Срок: </label>
         </List.Content>
@@ -419,25 +424,45 @@ export default function Cabinet(props) {
   // const handler = (formData) => alert(JSON.stringify(formData));
 
   return (
-    <Grid>
-      <Grid.Row>
-        <Grid.Column width="12">
-          <Error />
-          <AutoDossier />
-        </Grid.Column>
-        <Grid.Column width="4">
-          <Transition />
-          <p></p>
-          <ProductForm data={data} setData={setData} />
-          <Chat data={data} setData={setData} />
-        </Grid.Column>
-      </Grid.Row>
-      <Grid.Row>
-        <Grid.Column width="15">
-          <ListForm/>
-        </Grid.Column>
-      </Grid.Row>
-    </Grid>
+    <List verticalAlign='middle'>
+            <List.Item>
+              <List.Content>
+                <Error />
+              </List.Content>
+            </List.Item>
+            <List.Item>
+              <List.Content>
+
+                <List horizontal>
+                  <List.Item>
+                    <List.Content>
+                      <AutoDossier />
+                    </List.Content>
+                    <List.Content>
+                      <List verticalAlign floated='right'>
+                        <List.Item>
+                          <List.Content>
+                            <Transition />
+                          </List.Content>
+                          <List.Content>
+                            <ProductForm data={data} setData={setData} />
+                          </List.Content>
+                          <List.Content>
+                            <Chat data={data} setData={setData} />
+                          </List.Content>
+                        </List.Item>
+                      </List>
+                    </List.Content>
+                  </List.Item>
+                </List>
+              </List.Content>
+            </List.Item>
+            <List.Item>
+              <List.Content>
+                <ListForm/>
+              </List.Content>
+            </List.Item>
+          </List>
   )
 }
 

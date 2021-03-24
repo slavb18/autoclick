@@ -12,17 +12,12 @@ import { DragSwitch } from 'react-dragswitch'
 import { Component } from 'react'
 
 function MenuForm() {
-  const handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-  const { activeItem } = 'request'
   return <div>
   	<Menu tabular>
         <Menu.Item
-        	name='Заявка на кредит'
-          	active={activeItem === 'request'}
-          	onClick="/listOfApplications"/>
+        	name='Заявка на кредит'/>
         <Menu.Item
-        	name='Список заявок'
-          	active={activeItem === 'list'}/>
+        	name='Список заявок'/>
       </Menu>
   </div>
 }
@@ -146,8 +141,8 @@ function ProductForm({ data, setData }) {
   return <div>
     <Segment>
       <h1>Подобранный продукт</h1>
-      <List horizontal>
-            <List.Item>
+    <List horizontal>
+      <List.Item>
         <List.Content>
           <label>Срок: </label>
         </List.Content>

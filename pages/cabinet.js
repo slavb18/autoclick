@@ -29,9 +29,10 @@ function ProductForm({ data, setData }) {
   };
 
   return <div>
-    <Segment>
+    
       
     <List horizontal>
+    <Segment>
       <List.Item>
         <List.Content>
           <h1>Подобранный продукт</h1>
@@ -61,8 +62,6 @@ function ProductForm({ data, setData }) {
           <label>{data.payment} ₽</label>
         </List.Content>
       </List.Item>
-    </List>
-      <List horizontal>
         <List.Item>
           <List.Content>
             <label>Стоимость авто: </label>
@@ -79,7 +78,6 @@ function ProductForm({ data, setData }) {
             <label>{data.downPayment} ₽</label>
           </List.Content>
         </List.Item>
-      </List>
 
       <Modal onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
@@ -110,6 +108,7 @@ function ProductForm({ data, setData }) {
         </Modal.Content>
       </Modal>
     </Segment>
+    </List>
   </div>
 }
 
@@ -133,9 +132,10 @@ function Chat({ data, setData }) {
   };
 
   return <div>
-    <Segment>
-      <List>
+    
+      <List horizontal>
         <List.Item>
+        <List.Content>
           <Modal onClose={() => setOpen(false)}
             onOpen={() => setOpen(true)}
             open={open} trigger={<Button
@@ -212,9 +212,9 @@ function Chat({ data, setData }) {
                 </Grid>
             </Modal.Content>
           </Modal>
+        </List.Content>
         </List.Item>
       </List>
-    </Segment>
   </div>
 }
 
@@ -224,16 +224,14 @@ Chat.propTypes = {
 };
 
 function Transition() {
-  return <div>
-    <Segment>
-    <List>
+  return <div>    
+    <List horizontal>
       <List.Item>
         <Link href="/listOfApplications">
             <Button color='green' content="Список заявок"/>
         </Link>
       </List.Item>
     </List>
-    </Segment>
   </div>
 }
 
@@ -432,27 +430,19 @@ export default function Cabinet(props) {
             </List.Item>
             <List.Item>
               <List.Content>
-
                 <List horizontal>
                   <List.Item>
                     <List.Content>
-                      <AutoDossier />
-                    </List.Content>
-                    <List.Content>
-                      <List verticalAlign floated='right'>
-                        <List.Item>
-                          <List.Content>
-                            <Transition />
-                          </List.Content>
-                          <List.Content>
-                            <ProductForm data={data} setData={setData} />
-                          </List.Content>
-                          <List.Content>
-                            <Chat data={data} setData={setData} />
-                          </List.Content>
-                        </List.Item>
-                      </List>
-                    </List.Content>
+                      <Segment.Group horizontal>
+                        <Segment basic><AutoDossier /></Segment>
+                        <Segment basic>
+                          <Segment.Group>
+                            <Segment><Transition /></Segment>
+                            <Segment basic><ProductForm data={data} setData={setData} /></Segment>
+                            <Segment><Chat data={data} setData={setData} /></Segment>
+                          </Segment.Group>
+                        </Segment>
+                      </Segment.Group>                    </List.Content>
                   </List.Item>
                 </List>
               </List.Content>

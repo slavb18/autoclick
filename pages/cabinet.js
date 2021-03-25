@@ -31,89 +31,80 @@ function ProductForm({ data, setData }) {
   };
 
   return (
-    <div>
-      <List horizontal>
-        <Segment>
-          <List.Item>
-            <List.Content>
-              <h1>Подобранный продукт</h1>
-            </List.Content>
-          </List.Item>
-          <List.Item>
-            <List.Content>
-              <label>Срок: </label>
-            </List.Content>
-            <List.Content>
-              <label>{data.period} мес.</label>
-            </List.Content>
-          </List.Item>
-          <List.Item>
-            <List.Content>
-              <label>Ставка: </label>
-            </List.Content>
-            <List.Content>
-              <label>{data.rate} %</label>
-            </List.Content>
-          </List.Item>
-          <List.Item>
-            <List.Content>
-              <label>Платеж: </label>
-            </List.Content>
-            <List.Content>
-              <label>{data.payment} ₽</label>
-            </List.Content>
-          </List.Item>
-          <List.Item>
-            <List.Content>
-              <label>Стоимость авто: </label>
-            </List.Content>
-            <List.Content>
-              <label>{data.productAmount} ₽</label>
-            </List.Content>
-          </List.Item>
-          <List.Item>
-            <List.Content>
-              <label>Первоначальный взнос: </label>
-            </List.Content>
-            <List.Content>
-              <label>{data.downPayment} ₽</label>
-            </List.Content>
-          </List.Item>
+    <Segment>
+      <List.Item>
+        <List.Content>
+          <h1>Подобранный продукт</h1>
+        </List.Content>
+      </List.Item>
+      <List.Item>
+        <List.Content>
+          <label>Срок: </label>
+        </List.Content>
+        <List.Content>
+          <label>{data.period} мес.</label>
+        </List.Content>
+      </List.Item>
+      <List.Item>
+        <List.Content>
+          <label>Ставка: </label>
+        </List.Content>
+        <List.Content>
+          <label>{data.rate} %</label>
+        </List.Content>
+      </List.Item>
+      <List.Item>
+        <List.Content>
+          <label>Платеж: </label>
+        </List.Content>
+        <List.Content>
+          <label>{data.payment} ₽</label>
+        </List.Content>
+      </List.Item>
+      <List.Item>
+        <List.Content>
+          <label>Стоимость авто: </label>
+        </List.Content>
+        <List.Content>
+          <label>{data.productAmount} ₽</label>
+        </List.Content>
+      </List.Item>
+      <List.Item>
+        <List.Content>
+          <label>Первоначальный взнос: </label>
+        </List.Content>
+        <List.Content>
+          <label>{data.downPayment} ₽</label>
+        </List.Content>
+      </List.Item>
 
-          <Modal
-            onClose={() => setOpen(false)}
-            onOpen={() => setOpen(true)}
-            open={open}
-            trigger={
-              <Button
-                content="Подобрать продукт"
-                labelPosition="right"
-                icon="calculator"
-                positive
-              />
-            }>
-            <Modal.Header>
-              <em>Подобрать продукт</em>
-            </Modal.Header>
-            <Modal.Content>
-              <Modal.Description>
-                <AutoForm
-                  schema={createSchemaBridge(schema)}
-                  model={data}
-                  onSubmit={onSubmit}
-                  showInlineError={true}>
-                  <AutoFields />
-                  <SubmitField className="ui positive" value="Сохранить" />
-                  <Button color="black" onClick={() => setOpen(false)}>
-                    Закрыть
-                  </Button>
-                </AutoForm>
-              </Modal.Description>
-            </Modal.Content>
-          </Modal>
-        </Segment>
-      </List>
-    </div>
+      <Modal
+        onClose={() => setOpen(false)}
+        onOpen={() => setOpen(true)}
+        open={open}
+        trigger={
+          <Button content="Подобрать продукт" labelPosition="right" icon="calculator" positive />
+        }>
+        <Modal.Header>
+          <em>Подобрать продукт</em>
+        </Modal.Header>
+        <Modal.Content>
+          <Modal.Description>
+            <AutoForm
+              schema={createSchemaBridge(schema)}
+              model={data}
+              onSubmit={onSubmit}
+              showInlineError={true}>
+              <AutoFields />
+              <SubmitField className="ui positive" value="Сохранить" />
+              <Button color="black" onClick={() => setOpen(false)}>
+                Закрыть
+              </Button>
+            </AutoForm>
+          </Modal.Description>
+        </Modal.Content>
+      </Modal>
+    </Segment>
   );
 }
 
@@ -479,46 +470,34 @@ export default function Cabinet(props) {
   // const handler = (formData) => alert(JSON.stringify(formData));
 
   return (
-    <List verticalAlign="middle">
-      <List.Item>
-        <List.Content>
-          <Error />
-        </List.Content>
-      </List.Item>
-      <List.Item>
-        <List.Content>
-          <List horizontal>
-            <List.Item>
-              <List.Content>
-                <Segment.Group horizontal>
-                  <Segment basic>
-                    <AutoDossier />
-                  </Segment>
-                  <Segment basic>
-                    <Segment.Group>
-                      <Segment>
-                        <Transition />
-                      </Segment>
-                      <Segment basic>
-                        <ProductForm data={data} setData={setData} />
-                      </Segment>
-                      <Segment>
-                        <Chat data={data} setData={setData} />
-                      </Segment>
-                    </Segment.Group>
-                  </Segment>
-                </Segment.Group>{' '}
-              </List.Content>
-            </List.Item>
-          </List>
-        </List.Content>
-      </List.Item>
-      <List.Item>
-        <List.Content>
-          <ListForm />
-        </List.Content>
-      </List.Item>
-    </List>
+    <Segment.Group vertical>
+      <Segment>
+        <Transition />
+      </Segment>
+      <Segment>
+        <Error />
+      </Segment>
+      <Segment>
+        <Grid stackable columns={2}>
+          <Grid.Column width={12}>
+            <AutoDossier />
+          </Grid.Column>
+          <Grid.Column width={4}>
+            <Segment.Group>
+              <Segment basic>
+                <ProductForm data={data} setData={setData} />
+              </Segment>
+              <Segment>
+                <Chat data={data} setData={setData} />
+              </Segment>
+            </Segment.Group>
+          </Grid.Column>
+        </Grid>
+      </Segment>
+      <Segment>
+        <ListForm />
+      </Segment>
+    </Segment.Group>
   );
 }
 

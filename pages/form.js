@@ -26,9 +26,13 @@ import { Component } from 'react';
 function MenuForm() {
   return (
     <div>
-      <Menu tabular>
-        <Menu.Item name="Заявка на кредит" />
-        <Menu.Item name="Список заявок" />
+      <Menu fluid widths={3}>
+        <Menu.Item>
+          Подать заявку
+        </Menu.Item>
+        <Menu.Item>
+           <a href="listOfApplications">Список заявок</a>
+        </Menu.Item>
       </Menu>
     </div>
   );
@@ -45,114 +49,121 @@ function ListForm({ data, setData }) {
 
   return (
     <div>
-      <Segment>
-        <List verticalAlign="middle">
-          <List.Item>
-            <List.Content>
-              <label>Стоимость автомобиля:</label>
-              <p></p>
-              <RangeSlider
-                value={value}
-                min={1000000}
-                max={5000000}
-                step={1000}
-                onChange={(changeEvent) => setValue(changeEvent.target.value)}
-              />
-              <p></p>
-            </List.Content>
-            <List.Content>
-              <p></p>
-              <label>Первоначальный взнос:</label>
-              <p></p>
-              <RangeSlider
-                value={value2}
-                min={100000}
-                max={5000000}
-                step={1000}
-                onChange={(changeEvent) => setValue2(changeEvent.target.value)}
-              />
-              <p></p>
-            </List.Content>
-            <List.Content>
-              <p></p>
-              <label>Срок кредита:</label>
-              <p></p>
-              <RangeSlider
-                value={value3}
-                min={6}
-                max={120}
-                step={3}
-                onChange={(changeEvent) => setValue3(changeEvent.target.value)}
-              />
-              <p></p>
-            </List.Content>
-            <List.Content>
-              <p></p>
-              <label>Стоимость дополнительного оборудования:</label>
-              <p></p>
-              <RangeSlider
-                value={value4}
-                min={50000}
-                max={250000}
-                step={1000}
-                onChange={(changeEvent) => setValue4(changeEvent.target.value)}
-              />
-              <p></p>
-            </List.Content>
-          </List.Item>
-        </List>
-        <p></p>
-        <label>Услуги:</label>
-        <p></p>
-        <List horizontal>
-          <List.Item>
-            <List.Content>
-              <label>КАСКО </label>
-            </List.Content>
-          </List.Item>
-          <List.Item>
-            <List.Content>
-              <div className="ui fitted toggle checkbox">
-                <input type="checkbox" className="toggle" readOnly="" tabIndex="0" />
-                <label></label>
-              </div>
-            </List.Content>
-          </List.Item>
-        </List>
-        <List horizontal>
-          <List.Item>
-            <List.Content>
-              <label>Страхование </label>
-            </List.Content>
-          </List.Item>
-          <List.Item>
-            <List.Content>
-              <div className="ui fitted toggle checkbox">
-                <input
-                  type="checkbox"
-                  checked={checked}
-                  onChange={(e) => {
-                    setChecked(e);
-                  }}
-                  className="toggle"
-                  readOnly=""
-                  tabIndex="0"
-                />
-                <label></label>
-              </div>
-            </List.Content>
-          </List.Item>
-        </List>
-        <List>
-          <List.Item>
-            <List.Content>
-              <Button type="submit" color="green">
-                Рассчитать
-              </Button>
-            </List.Content>
-          </List.Item>
-        </List>
-      </Segment>
+      <Grid stackable columns={2}>
+        <Grid.Column width={6}>
+          <Segment>Подать заявку</Segment>
+        </Grid.Column>
+        <Grid.Column width={10}>
+          <Segment>
+            <List verticalAlign="middle">
+              <List.Item>
+                <List.Content>
+                  <label>Стоимость автомобиля:</label>
+                  <p></p>
+                  <RangeSlider
+                    value={value}
+                    min={1000000}
+                    max={5000000}
+                    step={1000}
+                    onChange={(changeEvent) => setValue(changeEvent.target.value)}
+                  />
+                  <p></p>
+                </List.Content>
+                <List.Content>
+                  <p></p>
+                  <label>Первоначальный взнос:</label>
+                  <p></p>
+                  <RangeSlider
+                    value={value2}
+                    min={100000}
+                    max={5000000}
+                    step={1000}
+                    onChange={(changeEvent) => setValue2(changeEvent.target.value)}
+                  />
+                  <p></p>
+                </List.Content>
+                <List.Content>
+                  <p></p>
+                  <label>Срок кредита:</label>
+                  <p></p>
+                  <RangeSlider
+                    value={value3}
+                    min={6}
+                    max={120}
+                    step={3}
+                    onChange={(changeEvent) => setValue3(changeEvent.target.value)}
+                  />
+                  <p></p>
+                </List.Content>
+                <List.Content>
+                  <p></p>
+                  <label>Стоимость дополнительного оборудования:</label>
+                  <p></p>
+                  <RangeSlider
+                    value={value4}
+                    min={50000}
+                    max={250000}
+                    step={1000}
+                    onChange={(changeEvent) => setValue4(changeEvent.target.value)}
+                  />
+                  <p></p>
+                </List.Content>
+              </List.Item>
+            </List>
+            <p></p>
+            <label>Услуги:</label>
+            <p></p>
+            <List horizontal>
+              <List.Item>
+                <List.Content>
+                  <label>КАСКО </label>
+                </List.Content>
+              </List.Item>
+              <List.Item>
+                <List.Content>
+                  <div className="ui fitted toggle checkbox">
+                    <input type="checkbox" className="toggle" readOnly="" tabIndex="0" />
+                    <label></label>
+                  </div>
+                </List.Content>
+              </List.Item>
+            </List>
+            <List horizontal>
+              <List.Item>
+                <List.Content>
+                  <label>Страхование </label>
+                </List.Content>
+              </List.Item>
+              <List.Item>
+                <List.Content>
+                  <div className="ui fitted toggle checkbox">
+                    <input
+                      type="checkbox"
+                      checked={checked}
+                      onChange={(e) => {
+                        setChecked(e);
+                      }}
+                      className="toggle"
+                      readOnly=""
+                      tabIndex="0"
+                    />
+                    <label></label>
+                  </div>
+                </List.Content>
+              </List.Item>
+            </List>
+            <List>
+              <List.Item>
+                <List.Content>
+                  <Button type="submit" color="green">
+                    Рассчитать
+                  </Button>
+                </List.Content>
+              </List.Item>
+            </List>
+          </Segment>
+        </Grid.Column>
+      </Grid>
     </div>
   );
 }
@@ -263,29 +274,24 @@ export default function Cabinet(props) {
   // const handler = (formData) => alert(JSON.stringify(formData));
 
   return (
-    <List verticalAlign="middle">
-      <List.Item>
-        <List.Content>
-          <Segment>
-            <MenuForm />
-          </Segment>
-        </List.Content>
-        <List.Content>
-          <List horizontal relaxed="very">
-            <List.Item>
-              <List.Content>
-                <ListForm />
-              </List.Content>
-            </List.Item>
-            <List.Item>
-              <List.Content floated="right">
-                <ProductForm data={data} setData={setData} />
-              </List.Content>
-            </List.Item>
-          </List>
-        </List.Content>
-      </List.Item>
-    </List>
+
+    <Segment.Group vertical>
+      <Segment>
+        <MenuForm />
+      </Segment>
+      <Segment>
+        <Grid stackable columns={2}>
+          <Grid.Column width={8}>
+            <ListForm />
+          </Grid.Column>
+          <Grid.Column width={5}>
+            <ProductForm data={data} setData={setData} />
+          </Grid.Column>
+        </Grid>
+      </Segment>
+    </Segment.Group>
+
+    
   );
 }
 

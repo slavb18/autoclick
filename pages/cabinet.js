@@ -1,4 +1,16 @@
-import { Modal, Button, Segment, Grid, Tab, Icon, Image, List } from 'semantic-ui-react';
+import {
+  Modal,
+  Button,
+  Form,
+  Segment,
+  Grid,
+  Tab,
+  Icon,
+  Menu,
+  MenuItem,
+  Image,
+  List
+} from 'semantic-ui-react';
 import { AutoForm } from 'uniforms-semantic';
 import { createSchemaBridge } from '../libs/uniforms';
 import PropTypes from 'prop-types';
@@ -226,16 +238,17 @@ Chat.propTypes = {
   setData: PropTypes.func
 };
 
-function Transition() {
+function MenuForm() {
   return (
     <div>
-      <List horizontal>
-        <List.Item>
-          <Link href="/listOfApplications">
-            <Button color="green" content="Список заявок" />
-          </Link>
-        </List.Item>
-      </List>
+      <Menu fluid widths={3}>
+        <Menu.Item>
+           <a href="listOfApplications">Список заявок</a>
+        </Menu.Item>
+        <Menu.Item>
+           <a href="form">Подать заявку</a>
+        </Menu.Item>
+      </Menu>
     </div>
   );
 }
@@ -243,28 +256,42 @@ function Transition() {
 function Upload({ pages }) {
   return (
     <div>
-      <Segment>
+    <Segment>
+      <List horizontal>
         <h4>Перетащите скан/фото документов сюда</h4>
-        <Button content="Загрузите с компьютера" labelPosition="right" icon="upload" positive />
-        <Button
-          content="Загрузите с телефона"
-          labelPosition="right"
-          color="black"
-          icon="mobile alternate"
-        />
-      </Segment>
-      <Grid columns={4} divided>
-        <Grid.Row>
-          {pages.map((page, index) => (
-            <Grid.Column key={index}>
-              <Icon name="window close outline" />
-              {page.error && <span className="error">{page.error}</span>}
-              <br />
-              <img src={page.src} width="150" height="150" />
-            </Grid.Column>
-          ))}
-        </Grid.Row>
-      </Grid>
+          <List.Item>
+            <List.Content>
+              <Button
+                content="Загрузите с компьютера"
+                labelPosition="right"
+                icon="upload" positive
+              />
+            </List.Content>
+          </List.Item>
+          <List.Item>
+            <List.Content>
+              <Button
+                content="Загрузите с телефона"
+                labelPosition="right"
+                color="black"
+                icon="mobile alternate"
+              />
+            </List.Content>
+          </List.Item>
+        </List>
+    </Segment>
+            <Grid columns={4} divided>
+              <Grid.Row>
+                {pages.map((page, index) => (
+                  <Grid.Column key={index}>
+                    <Icon name="window close outline" />
+                    {page.error && <span className="error">{page.error}</span>}
+                    <br />
+                    <img src={page.src} width="150" height="150" />
+                  </Grid.Column>
+                ))}
+              </Grid.Row>
+            </Grid>
     </div>
   );
 }
@@ -329,7 +356,7 @@ function Error() {
 function ListForm() {
   return (
     <div>
-      <Grid divided="vertically">
+      <Grid stackable columns={2}>
         <Grid.Column width={3}>
           <Segment>Загруженные документы</Segment>
         </Grid.Column>
@@ -472,7 +499,7 @@ export default function Cabinet(props) {
   return (
     <Segment.Group vertical>
       <Segment>
-        <Transition />
+        <MenuForm />
       </Segment>
       <Segment>
         <Error />

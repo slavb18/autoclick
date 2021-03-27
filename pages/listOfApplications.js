@@ -8,7 +8,8 @@ import {
   Tab,
   Icon,
   Image,
-  List
+  List,
+  Menu
 } from 'semantic-ui-react';
 import { AutoForm } from 'uniforms-semantic';
 import { createSchemaBridge } from '../libs/uniforms';
@@ -42,12 +43,17 @@ function Search() {
   );
 }
 
-function Transition() {
+function MenuForm() {
   return (
     <div>
-      <Link href="/form">
-        <Button color="green" content="Подать заявку" />
-      </Link>
+      <Menu fluid widths={3}>
+        <Menu.Item>
+          Список заявок
+        </Menu.Item>
+        <Menu.Item>
+          <a href="form">Подать заявку</a>
+        </Menu.Item>        
+      </Menu>
     </div>
   );
 }
@@ -226,26 +232,16 @@ export default function Cabinet(props) {
   // const handler = (formData) => alert(JSON.stringify(formData));
 
   return (
-    <List verticalAlign="middle">
-      <List.Item>
-        <List.Content>
-          <List horizontal>
-            <List.Item>
-              <List.Content>
-                <Search />
-              </List.Content>
-            </List.Item>
-            <List.Item>
-              <List.Content>
-                <Transition />
-              </List.Content>
-            </List.Item>
-          </List>
-        </List.Content>
-        <List.Content>
-          <ListOfApplications />
-        </List.Content>
-      </List.Item>
-    </List>
+    <Segment.Group vertical>
+      <Segment>
+        <MenuForm />
+      </Segment>
+      <Segment>
+        <Search />
+      </Segment>
+      <Segment>
+        <ListOfApplications />
+      </Segment>
+    </Segment.Group>
   );
 }

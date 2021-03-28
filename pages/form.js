@@ -32,7 +32,7 @@ function MenuForm() {
           name="Подать заявку"
         />
         <Menu.Item
-          icon = "archive"
+          icon = "home"
           name="Список заявок"
           href="listOfApplications"
         />

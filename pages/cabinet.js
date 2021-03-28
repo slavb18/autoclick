@@ -248,7 +248,7 @@ function MenuForm() {
           href="form"
         />
         <Menu.Item
-          icon = "archive"
+          icon = "home"
           name="Список заявок"
           href="listOfApplications"
         />

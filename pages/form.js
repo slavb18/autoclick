@@ -26,13 +26,16 @@ import { Component } from 'react';
 function MenuForm() {
   return (
     <div>
-      <Menu fluid widths={3}>
-        <Menu.Item>
-          Подать заявку
-        </Menu.Item>
-        <Menu.Item>
-           <a href="listOfApplications">Список заявок</a>
-        </Menu.Item>
+      <Menu icon='labeled' fluid widths={3}>
+        <Menu.Item
+          icon = "edit outline"
+          name="Подать заявку"
+        />
+        <Menu.Item
+          icon = "archive"
+          name="Список заявок"
+          href="listOfApplications"
+        />
       </Menu>
     </div>
   );

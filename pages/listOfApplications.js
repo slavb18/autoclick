@@ -46,13 +46,16 @@ function Search() {
 function MenuForm() {
   return (
     <div>
-      <Menu fluid widths={3}>
-        <Menu.Item>
-          Список заявок
-        </Menu.Item>
-        <Menu.Item>
-          <a href="form">Подать заявку</a>
-        </Menu.Item>        
+      <Menu icon='labeled' fluid widths={3}>
+        <Menu.Item
+          icon = "edit outline"
+          name="Подать заявку"
+          href="form"
+        />
+        <Menu.Item
+          icon = "archive"
+          name="Список заявок"
+        />
       </Menu>
     </div>
   );

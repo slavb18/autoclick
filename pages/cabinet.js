@@ -241,13 +241,17 @@ Chat.propTypes = {
 function MenuForm() {
   return (
     <div>
-      <Menu fluid widths={3}>
-        <Menu.Item>
-           <a href="listOfApplications">Список заявок</a>
-        </Menu.Item>
-        <Menu.Item>
-           <a href="form">Подать заявку</a>
-        </Menu.Item>
+      <Menu icon='labeled' fluid widths={3}>
+        <Menu.Item
+          icon = "edit outline"
+          name="Подать заявку"
+          href="form"
+        />
+        <Menu.Item
+          icon = "archive"
+          name="Список заявок"
+          href="listOfApplications"
+        />
       </Menu>
     </div>
   );

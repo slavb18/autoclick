@@ -14,7 +14,6 @@
     "ilb-build": "npm run build"
   },
   "dependencies": {
-    "@szhsin/react-menu": "^1.8.0",
     "@ilb/filedossiercomponent": "^2.0.10",
     "ajv": "^6.12.6",
     "ajv-formats": "^1.5.1",

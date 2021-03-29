@@ -10,15 +10,16 @@
     "escheck": "npm run clean && npm run build && npm run check:es:build",
     "lint": "eslint ./pages ./next.config.js -f table --ext .js --ext .jsx || true",
     "test": "jest",
-    "_publish": "npm install && npm run build && npm run check:es:build && npm unpublish @ilb/autoclick@1.0.1 && npm publish"
+    "ilb-publish": "npm run build && npm run check:es:build && npm unpublish @ilb/autoclick@1.0.1 && npm publish",
+    "ilb-build": "npm run build"
   },
   "dependencies": {
-    "@ilb/filedossiercomponent": "github:ilb/filedossiercomponent",
     "@szhsin/react-menu": "^1.8.0",
-    "ajv": "^7.1.1",
+    "@ilb/filedossiercomponent": "^2.0.10",
+    "ajv": "^6.12.6",
     "ajv-formats": "^1.5.1",
     "ajv-i18n": "^3.6.0",
-    "next": "^10.0.8",
+    "next": "^10.0.9",
     "next-compose-plugins": "^2.2.0",
     "next-transpile-modules": "^4.1.0",
     "react": "^17.0.1",

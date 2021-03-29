@@ -6,7 +6,8 @@ const withTM = require('next-transpile-modules')([
   'uniforms',
   'uniforms-semantic',
   'ajv',
-  '@ilb/filedossiercomponent'
+  '@ilb/filedossiercomponent',
+  'react-range-step-input'
 ]);
 const basePath = '/autoclick';
 module.exports = withPlugins([withTM], {

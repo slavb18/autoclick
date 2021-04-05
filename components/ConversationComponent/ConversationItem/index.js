@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import moment from 'moment';
-import Badge from 'react-bootstrap/Badge';
 
 const ConversationItem = ({ item, key }) => {
   const { id, date, user, url } = item;
-
   const [openMedia, setOpenMedia] = useState(false);
 
   return (
@@ -19,7 +17,7 @@ const ConversationItem = ({ item, key }) => {
           </audio>
         )}
         {openMedia && (
-          <Badge
+          <button
             onClick={() => {
               setOpenMedia(!openMedia);
             }}
@@ -27,7 +25,7 @@ const ConversationItem = ({ item, key }) => {
             variant="dark">
             {' '}
             X{' '}
-          </Badge>
+          </button>
         )}
         {!openMedia && (
           <button

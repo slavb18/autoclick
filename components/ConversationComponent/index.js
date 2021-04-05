@@ -1,6 +1,4 @@
 import React from 'react';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import ConversationItem from './ConversationItem';
 import { Button, Grid, Icon, Modal } from 'semantic-ui-react';
 
@@ -41,8 +39,7 @@ const ConversationComponent = () => {
           <Modal.Description>
             <Grid divided="vertically">
               <Grid.Column width={10}>
-                <Row>
-                  <Col>
+                <Grid.Row>
                     <div className="container">
                       <table
                         className="table-container"
@@ -65,8 +62,7 @@ const ConversationComponent = () => {
                         </tbody>
                       </table>
                     </div>
-                  </Col>
-                </Row>
+                </Grid.Row>
               </Grid.Column>
             </Grid>
           </Modal.Description>

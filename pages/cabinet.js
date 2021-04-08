@@ -24,6 +24,7 @@ import page3 from './dog/page-3.jpg';
 import a1 from './dog/a1.png';
 import doc1 from './dog/document.jpg';
 import doc2 from './dog/document2.png';
+import ConversationComponent from '../components/ConversationComponent';
 
 function ProductForm({ data, setData }) {
   const [open, setOpen] = React.useState(false);
@@ -153,7 +154,7 @@ function Chat({ data, setData }) {
               <Modal.Header>
                 <Grid divided="vertically">
                   <Grid.Column width={15}>
-                    <em>Сообщения</em>
+                    <em>История звонков</em>
                   </Grid.Column>
                   <Grid.Column width={1}>
                     <Icon link name="close" onClick={() => setOpen(false)} />
@@ -164,7 +165,7 @@ function Chat({ data, setData }) {
                 <Modal.Description>
                   <Grid divided="vertically">
                     <Grid.Column width={5}>
-                      <i>4 участника, 2 участника онлайн...</i>
+                      <i>Менеджеры</i>
                     </Grid.Column>
                     <Grid.Column width={10}>
                       <Segment>
@@ -520,6 +521,7 @@ export default function Cabinet(props) {
               </Segment>
               <Segment>
                 <Chat data={data} setData={setData} />
+                <ConversationComponent />
               </Segment>
             </Segment.Group>
           </Grid.Column>

@@ -199,7 +199,7 @@ function DocumentCheckForm({ data, onSubmit }) {
 function DocumentCheckPage() {
   const dossierParams = {
     dossierKey: 'teststorekey',
-    dossierPackage: 'testmodel',
+    dossierPackage: 'testimg',
     dossierCode: 'TEST',
     dossierMode: 'mode1'
   };
